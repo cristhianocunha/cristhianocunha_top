@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Git e GitHub - Windows</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #24292e;
+        }
+        h1 {
+            border-bottom: 2px solid #24292e;
+            padding-bottom: 10px;
+        }
+        h2 {
+            background-color: #f6f8fa;
+            padding: 8px 12px;
+            border-left: 4px solid #0366d6;
+            margin-top: 30px;
+        }
+        .step {
+            background-color: white;
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            page-break-inside: avoid;
+        }
+        .code-container {
+            position: relative;
+            margin: 15px 0;
+        }
+        pre {
+            background-color: #f6f8fa;
+            border-radius: 6px;
+            padding: 12px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            border: 1px solid #e1e4e8;
+        }
+        .copy-btn {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            background-color: #0366d6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .copy-btn:hover {
+            opacity: 1;
+        }
+        .note {
+            background-color: #e7f5ff;
+            border-left: 4px solid #4dabf7;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #fff3bf;
+            border-left: 4px solid #ffd43b;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                font-size: 12pt;
+            }
+            .step {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+            .copy-btn {
+                display: none;
+            }
+            h2 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Configuração do Git e GitHub no Windows 10/11</h1>
+    
+    <div class="note">
+        <strong>Nota:</strong> Este guia contém botões para copiar comandos diretamente. Clique no botão "Copiar" ao lado de cada bloco de código.
+    </div>
+
+    <h2>1. Instalação do Git</h2>
+    
+    <div class="step">
+        <h3>1.1 Baixe o Git</h3>
+        <p>Acesse o site oficial: <a href="https://git-scm.com/download/win" target="_blank">https://git-scm.com/download/win</a></p>
+        <p>O download começará automaticamente para a versão adequada ao seu Windows (32-bit ou 64-bit)</p>
+    </div>
+    
+    <div class="step">
+        <h3>1.2 Execute o instalador</h3>
+        <p>Dê duplo clique no arquivo baixado (ex: <code>Git-2.xx.x-64-bit.exe</code>)</p>
+        <p>Siga as instruções do instalador</p>
+    </div>
+    
+    <div class="step">
+        <h3>1.3 Configuração durante a instalação</h3>
+        <ul>
+            <li>Aceite a licença</li>
+            <li>Selecione o local de instalação (pode deixar o padrão)</li>
+            <li>Na seleção de componentes, marque:
+                <ul>
+                    <li>"Git Bash Here"</li>
+                    <li>"Git GUI Here"</li>
+                    <li>"Associate .git* configuration files with the default text editor"</li>
+                </ul>
+            </li>
+            <li>Escolha o editor padrão (recomendo "Use Visual Studio Code as Git's default editor" se tiver o VSCode instalado)</li>
+            <li>Na configuração do PATH, selecione: "Git from the command line and also from 3rd-party software"</li>
+            <li>Para conversão de linha final (line endings), selecione: "Checkout Windows-style, commit Unix-style line endings"</li>
+            <li>Configure o terminal: selecione "Use MinTTY (the default terminal of MSYS2)"</li>
+            <li>Nas opções extras, marque:
+                <ul>
+                    <li>"Enable file system caching"</li>
+                    <li>"Enable Git Credential Manager"</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="step">
+        <h3>1.4 Conclua a instalação</h3>
+        <p>Clique em "Install" e aguarde a conclusão da instalação.</p>
+    </div>
+
+    <h2>2. Configuração inicial do Git</h2>
+    
+    <div class="step">
+        <h3>2.1 Abra o Git Bash</h3>
+        <p>Menu Iniciar > Git > Git Bash</p>
+    </div>
+    
+    <div class="step">
+        <h3>2.2 Configure seu usuário</h3>
+        <p>Substitua com seus dados:</p>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>git config --global user.name "Seu Nome"
+git config --global user.email "seu@email.com"</pre>
+        </div>
+    </div>
+    
+    <div class="step">
+        <h3>2.3 Configure o editor padrão (opcional)</h3>
+        <p>Se quiser usar o VSCode como editor padrão:</p>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>git config --global core.editor "code --wait"</pre>
+        </div>
+    </div>
+    
+    <div class="step">
+        <h3>2.4 Verifique as configurações</h3>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>git config --list</pre>
+        </div>
+    </div>
+
+    <h2>3. Configuração da conexão com o GitHub</h2>
+    
+    <div class="step">
+        <h3>Opção 1: Usando HTTPS (mais simples)</h3>
+        <h4>3.1.1 Gere um token de acesso pessoal</h4>
+        <ul>
+            <li>Acesse <a href="https://github.com/settings/tokens" target="_blank">https://github.com/settings/tokens</a></li>
+            <li>Clique em "Generate new token"</li>
+            <li>Dê um nome descritivo</li>
+            <li>Selecione os escopos necessários (para repositórios privados, marque "repo")</li>
+            <li>Clique em "Generate token"</li>
+            <li>Copie o token gerado (ele só será mostrado uma vez)</li>
+        </ul>
+        
+        <div class="warning">
+            <strong>Atenção:</strong> Guarde este token em um local seguro, pois você não poderá vê-lo novamente depois de sair da página.
+        </div>
+    </div>
+    
+    <div class="step">
+        <h3>Opção 2: Usando SSH (recomendado para maior segurança)</h3>
+        <h4>3.2.1 Gere uma chave SSH</h4>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>ssh-keygen -t ed25519 -C "seu@email.com"</pre>
+        </div>
+        <p>Pressione Enter para aceitar o local padrão</p>
+        <p>Digite uma senha segura (opcional, mas recomendado)</p>
+        
+        <h4>3.2.2 Adicione a chave ao ssh-agent</h4>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_ed25519</pre>
+        </div>
+        
+        <h4>3.2.3 Adicione a chave pública ao GitHub</h4>
+        <ul>
+            <li>Mostre a chave pública:</li>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre>cat ~/.ssh/id_ed25519.pub</pre>
+            </div>
+            <li>Copie todo o conteúdo</li>
+            <li>Acesse <a href="https://github.com/settings/keys" target="_blank">https://github.com/settings/keys</a></li>
+            <li>Clique em "New SSH key"</li>
+            <li>Cole a chave e salve</li>
+        </ul>
+        
+        <h4>3.2.4 Teste a conexão</h4>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>ssh -T git@github.com</pre>
+        </div>
+        <p>Responda "yes" se perguntado sobre continuar a conexão</p>
+        <p>Você deve ver uma mensagem de sucesso</p>
+    </div>
+
+    <h2>4. Configurando o Git Credential Manager (opcional)</h2>
+    
+    <div class="step">
+        <p>O Git Credential Manager já foi instalado automaticamente com o Git. Ele irá:</p>
+        <ul>
+            <li>Armazenar suas credenciais de forma segura</li>
+            <li>Gerenciar automaticamente a autenticação com o GitHub</li>
+        </ul>
+        
+        <p>Para verificar se está funcionando:</p>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>git config --global credential.helper</pre>
+        </div>
+        <p>Deve retornar "manager" ou algo similar.</p>
+    </div>
+
+    <h2>5. Testando sua configuração</h2>
+    
+    <div class="step">
+        <h3>5.1 Crie um repositório de teste</h3>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>mkdir teste-git
+cd teste-git
+git init
+echo "# Teste Git" > README.md
+git add README.md
+git commit -m "Primeiro commit"</pre>
+        </div>
+    </div>
+    
+    <div class="step">
+        <h3>5.2 Crie um repositório no GitHub</h3>
+        <ul>
+            <li>Acesse <a href="https://github.com/new" target="_blank">https://github.com/new</a></li>
+            <li>Dê um nome (ex: "teste-git")</li>
+            <li>Não marque "Initialize this repository with a README"</li>
+        </ul>
+    </div>
+    
+    <div class="step">
+        <h3>5.3 Conecte seu repositório local ao GitHub</h3>
+        <p>Para SSH:</p>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>git remote add origin git@github.com:seu-usuario/teste-git.git</pre>
+        </div>
+        <p>Para HTTPS:</p>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>git remote add origin https://github.com/seu-usuario/teste-git.git</pre>
+        </div>
+    </div>
+    
+    <div class="step">
+        <h3>5.4 Envie suas alterações</h3>
+        <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre>git push -u origin main</pre>
+        </div>
+        <div class="note">
+            <p>Se for solicitado, insira seu nome de usuário do GitHub e:</p>
+            <ul>
+                <li>Para HTTPS: use o token de acesso como senha</li>
+                <li>Para SSH: use a senha da sua chave SSH (se você configurou uma)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="note">
+        <h3>Pronto!</h3>
+        <p>Seu Git e GitHub estão configurados corretamente no seu Windows.</p>
+        <p>Para salvar como PDF, use a função de impressão do seu navegador (Ctrl+P) e selecione "Salvar como PDF".</p>
+    </div>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const range = document.createRange();
+            range.selectNode(codeBlock);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    button.textContent = 'Copiado!';
+                    setTimeout(() => {
+                        button.textContent = 'Copiar';
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error('Falha ao copiar: ', err);
+            }
+            
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+</body>
+</html>
