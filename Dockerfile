@@ -25,7 +25,7 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
 # Expõe a porta do Apache
-EXPOSE 81
+EXPOSE 80
 
 # Mantém o Apache rodando
 CMD ["apache2-foreground"]
