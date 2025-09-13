@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="src/css/styles.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <title>Dra. Maria das Graças</title>
+</head>
+
+<body>
+  <a href="https://api.whatsapp.com/send/?phone=559881419938&text=Ol%C3%A1%2C+quero+agendar+uma+consulta+com+a+Dra.+Gra%C3%A7a+Santos&type=phone_number&app_absent=0"
+    class="whatsapp-float" target="_blank">
+    <img src="imagens/whatasapp.png" alt="WhatsApp" class="whatsapp-icon">
+    <!-- <i class="bi bi-whatsapp text-center whatsapp-icon"></i> -->
+  </a>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary minha-navbar ">
+    <div class="cornav container-fluid">
+
+      <a class="navbar-brand "
+        href="https://api.whatsapp.com/send/?phone=559881419938&text=Ol%C3%A1%2C+quero+agendar+uma+consulta+com+a+Dra.+Gra%C3%A7a+Santos&type=phone_number&app_absent=0"><img
+          src="imagens/logo.webp" width="180" height="60"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#incio">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#sobre_mim">Sobre mim</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#avaliacoees">Avaliações</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contato">contato</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <section id="incio" class="about-2 section light-background ">
+
+    <div class="container conteudo">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 order-lg-2 offset-xl-1 mb-4">
+          <div class="img-wrap text-center text-md-left">
+
+            <div class="img image-wrapper" data-aos="fade-left" data-aos-duration="2000">
+              <img src="imagens/gracinha.jpg" alt="circle image " class="img-fluid shadow-lg">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 order-lg-1" data-aos="fade-right" data-aos-duration="2000">
+          <div class="px-3">
+            <span>Dra.</span>
+            <h1 class=" text-start fw-bold  cssanimation leFadeIn ">
+              Maria das Graças
+            </h1>
+            <!-- <p class="lead fs-6">
+                  Especialista em Ortodontia
+                </p> -->
+            <p>
+              Prevenção odontológica<br>
+              Clareamento dental, sem dor e
+              até o branco máximo<br>
+              Ortodontia e Ortopedia<br>
+            </p>
+            <p class="mt-5">
+              <a href="https://api.whatsapp.com/send/?phone=559881419938&text=Ol%C3%A1%2C+quero+agendar+uma+consulta+com+a+Dra.+Gra%C3%A7a+Santos&type=phone_number&app_absent=0"
+                class="btn btn-outline-primary">Marque uma consulta</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="b-example-divider" id="sobre_mim"></div>
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <!-- Imagem à esquerda -->
+      <div class="col-10 col-sm-8 col-lg-6">
+        <div class="img image-wrapper" data-aos="fade-right" data-aos-duration="2000">
+          <img src="imagens/DSC_0940.jpg" class="img-fluid rounded custom-portrait" alt="gracinha"
+            style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Texto à direita -->
+      <div class="col-lg-6 p-3 p-lg-5 pt-lg-3" data-aos="fade-left" data-aos-duration="2000">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Sobre mim</h1>
+        <p>
+          Trabalho com ortodontia e sou apaixonada pelo que faço. Para mim o acolhimento é minha palavra-chave para
+          conquistar a confiança dos pacientes, muitos dos quais chegam com traumas de experiências anteriores com
+          dentistas. Faço questão de explicar cada passo dos procedimentos, esclarecendo todas as dúvidas para que
+          se sintam seguros e bem-informados.
+          <br><br>
+          Minha área de atuação abrange ortodontia para crianças e adultos, trabalhando com aparelhos ortopédicos,
+          aparelhos fixos e alinhadores. Além disso, ofereço tratamentos como clareamento dentário, ajudando cada
+          paciente a alcançar um sorriso saudável e confiante.
+          <br><br>
+          No consultório, conto com uma equipe de parceiros especializados, prontos para realizar cirurgias,
+          tratamentos de canal e implantes dentários, sempre garantindo um atendimento completo e de qualidade.
+          Nosso espaço é amplo e acolhedor, bem localizado no Centro Empresarial Shopping da Ilha, preparado para
+          oferecer uma experiência confortável a todos os pacientes.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="b-example-divider" id="avaliacoees"></div>
+  <main>
+    <div class="container my-5">
+      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg" data-aos="fade-right"
+        data-aos-duration="2000">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Avaliações</h1>
+        <p>
+          Confira o que nossos clientes têm a dizer!
+        </p>
+        <div data-aos="fade-down" data-aos-duration="1500">
+        </div>
+        <div class="swiper" data-aos="fade-right" data-aos-duration="2000" data-aos-easing="ease-in-sine">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-rate">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <blockquote class="testimonial-quote">
+                <br>"Ficou execelent o resultado. &#128525; &#128525; &#128525; Dra. nota 1.0000"
+              </blockquote>
+
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <img src="src/images/avatar1.jpg" alt="Imagem de uma pessoa">
+                </div>
+
+                <div class="author-info">
+                  <h3>Marcia Oliveira</h3>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-rate">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <blockquote class="testimonial-quote">
+                <br> "Parabéns pelo seu trabalho, em pensar que na minha infância eu morria de medo de dentista.
+                &#128554;
+                "
+              </blockquote>
+
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <img src="src/images/avatar2.jpg" alt="Imagem de uma pessoa">
+                </div>
+
+                <div class="author-info">
+                  <h3>Adriana Tobias Silva</h3>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-rate">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <blockquote class="testimonial-quote">
+                <br>"Obrigado por mim deixarem tão avontade.
+                <br> Amei a conversa"
+              </blockquote>
+
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <img src="src/images/avatar3.jpg" alt="Imagem de uma pessoa">
+                </div>
+
+                <div class="author-info">
+                  <h3>Mayza Borges
+                  </h3>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="swiper-pagination"></div>
+
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </div>
+    <div class="b-example-divider" id="Procedimento"></div>
+
+    <div class="container my-5">
+      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg" data-aos="fade-right"
+        data-aos-duration="2000">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Procedimento realizados</h1>
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+          <div class="col" data-bs-toggle="modal" data-bs-target="#ortodontiaadulto">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagens/ortodontia_adulto.jpg');
+              background-size: cover; background-position: center;">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Ortodontia adulto </h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+
+                  </li>
+                  <li class="d-flex align-items-center">
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagens/criana.jpg');
+            background-size: cover; background-position: center;">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1" data-bs-toggle="modal"
+                data-bs-target="#ortodontiainfantil">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Avaliação ortodôntica e tratamento com aparelhos na
+                  infância</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+
+                  </li>
+                  <li class="d-flex align-items-center">
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-bs-toggle="modal" data-bs-target="#Miniimplante">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url('imagens/Mini_implante.jpg');
+              background-size: cover; background-position: center;">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Mini implante</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+
+                  </li>
+                  <li class="d-flex align-items-center">
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-bs-toggle="modal" data-bs-target="#Clareamento">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagens/clareamento_dental.jpg');
+              background-size: cover; background-position: center;">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Clareamento dental</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+
+                  </li>
+                  <li class="d-flex align-items-center">
+
+                  </li>
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col" data-bs-toggle="modal" data-bs-target="#Carie">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagens/pexels-shvetsa-3845682.jpg');
+              background-size: cover; background-position: center;">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Restaurações estéticas e tratamentos de lesões de
+                  cárie
+                </h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+
+                  </li>
+                  <li class="d-flex align-items-center">
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col" data-bs-toggle="modal" data-bs-target="#Cirurgias">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagens/cirurgia.jpg');
+              background-size: cover; background-position: center;">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Cirurgias de extração de dente</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+
+                  </li>
+                  <li class="d-flex align-items-center">
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- contato -->
+    <div class="b-example-divider" id="contato"></div>
+
+    <div class="container my-5">
+      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg" data-aos="fade-right"
+        data-aos-duration="2000">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Contato</h1>
+        <div class="container" data-aos="fade">
+
+          <div class="row gy-5 gx-lg-5">
+
+            <div class="col-lg-4">
+
+              <div class="info">
+                <div class="info-item d-flex">
+                  <i class="bi bi-geo-alt flex-shrink-0"></i>
+                  <div>
+                    <h4>Localização:</h4>
+                    <p>Dra. Maria das Graças
+                      Cento Empresarial Shopping da Ilha - torre 2 - Sala 605 - Maranhão Novo, São Luís - MA, 65074-115</p>
+                  </div>
+                </div><!-- End Info Item -->
+                <div class="info-item d-flex">
+                  <i class="bi bi-phone flex-shrink-0"></i>
+                  <div>
+                    <h4>WhatsApp:</h4>
+                    <p>98 8141-9938   </p>
+                  </div>
+                </div><!-- End Info Item -->
+              </div>
+            </div>
+            <!-- <div class="col-lg-8">
+              <form id="form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="nome" class="form-control" id="name" placeholder="Seu nome" required="">
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="text" class="form-control" name="telefone" id="email" placeholder="WhatsApp" required="">
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="email" class="form-control" name="email" id="subject" placeholder="Seu Email"
+                    required="">
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="comentario" placeholder="Comentário" ></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="error-message"></div>
+                  <div class="sent-message"></div>
+                </div>
+                <label class="label">
+                  <input type="submit" class="input" />
+                  <span class="circle"
+                    ><svg
+                      class="icon"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M12 19V5m0 14-4-4m4 4 4-4"
+                      ></path>
+                    </svg>
+                    <div class="square"></div>
+                  </span>
+                  <p class="title">Enviar</p>
+                  <p class="title">Feito!</p>
+                </label>
+            
+              </form>
+            </div>End Contact Form -->
+
+          </div>
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d127549.62839782772!2d-44.31052502164995!3d-2.5310862949369586!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f68fba7b36429b%3A0x64380583b3e8fd2e!2sDra.%20Maria%20das%20Gra%C3%A7as!5e0!3m2!1spt-BR!2sbr!4v1731886601090!5m2!1spt-BR!2sbr"
+          width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+
+    </div>
+    <!-- footer -->
+    <div class="b-example-divider" id="footer"></div>
+
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#incio" class="nav-link px-2 text-body-secondary">Inicio</a></li>
+        <li class="nav-item"><a href="#sobre_mim" class="nav-link px-2 text-body-secondary">Sobre mim</a></li>
+        <li class="nav-item"><a href="#avaliacoees" class="nav-link px-2 text-body-secondary">Avaliações</a></li>
+        <li class="nav-item"><a href="#Procedimento" class="nav-link px-2 text-body-secondary">Procedimento
+            realizados</a></li>
+        <li class="nav-item"><a href="#contato" class="nav-link px-2 text-body-secondary">Contato</a></li>
+      </ul>
+
+      <a href="https://www.instagram.com/mariaecristhiano.studio/" target="_blank">
+        <p class="text-center text-body-secondary">© 2024 mariaecristhiano.studio</p>
+      </a>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="ortodontiaadulto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Ortodontia adulto</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Cada vez mais adultos estão buscando a ortodontia para melhorar a saúde bucal e a estética do sorriso. Com
+            os avanços da tecnologia e métodos mais discretos, cuidar do alinhamento dos dentes se tornou acessível e
+            confortável, independentemente da idade.
+
+            A ortodontia para adultos não é apenas uma questão estética. Dentes desalinhados podem afetar a
+            mastigação,
+            provocar dores na mandíbula e dificultar a higienização, aumentando o risco de cáries e doenças gengivais.
+            Nossa clínica oferece opções modernas, como aparelhos autoligados, alinhadores transparentes e tratamentos
+            personalizados que se adaptam ao estilo de vida de cada paciente.
+
+            Invista em sua saúde e bem-estar. Um sorriso alinhado proporciona mais do que uma aparência renovada — ele
+            contribui para a sua qualidade de vida e autoestima. Agende uma avaliação e descubra como podemos ajudar
+            você a conquistar o sorriso que sempre desejou.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn tn-primary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="ortodontiainfantil" tabindex="-1" aria-labelledby="Modalortodontiainfantil"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="Modalortodontiainfantil">Avaliação ortodôntica e tratamento com aparelhos
+              na
+              infância</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            A infância é a fase ideal para avaliar o desenvolvimento da arcada dentária e garantir que o crescimento
+            dos
+            dentes e da mandíbula ocorra de forma adequada. Uma avaliação ortodôntica precoce permite identificar
+            possíveis problemas, como mordida cruzada, dentes apinhados ou desalinhados, e disfunções na mandíbula,
+            que
+            podem ser corrigidos de maneira mais simples e eficaz enquanto os ossos ainda estão em formação.
+
+            O tratamento ortodôntico na infância pode incluir o uso de aparelhos móveis ou fixos que ajudam a guiar os
+            dentes e a estrutura óssea em crescimento, evitando problemas mais complexos no futuro. A intervenção
+            precoce pode melhorar a função mastigatória, facilitar a higienização bucal e garantir que a criança tenha
+            um sorriso saudável e bonito, além de contribuir para o desenvolvimento adequado da fala e da respiração.
+
+            Nossa equipe especializada em ortodontia infantil está preparada para cuidar de cada pequeno paciente com
+            atenção e carinho, garantindo que o tratamento seja uma experiência positiva e tranquila. Agende uma
+            avaliação e invista na saúde e confiança do sorriso do seu filho desde cedo.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn tn-primary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="Miniimplante" tabindex="-1" aria-labelledby="ModalMiniimplante" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="ModalMiniimplante">Mini implante</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Os mini implantes ortodônticos são pequenas peças de titânio que atuam como ancoragem temporária para
+            movimentar os dentes de forma mais eficaz durante o tratamento ortodôntico. Eles são indicados em casos
+            onde
+            é necessário aplicar forças específicas para alinhar os dentes ou corrigir a posição da arcada dentária.
+
+            Essa técnica moderna oferece uma série de benefícios, como uma movimentação mais rápida dos dentes, maior
+            controle sobre o tratamento e a redução do tempo total de uso do aparelho ortodôntico. A aplicação do mini
+            implante é minimamente invasiva, realizada com anestesia local e envolve um tempo de recuperação curto,
+            permitindo que o paciente retome suas atividades normais rapidamente.
+
+            Os mini implantes são uma solução eficiente e segura que proporciona mais previsibilidade aos tratamentos
+            ortodônticos, garantindo resultados precisos e um sorriso harmonioso. Se você busca um tratamento
+            ortodôntico otimizado e com maior conforto, consulte nossa equipe para saber se os mini implantes são
+            indicados para o seu caso.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn tn-primary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="Clareamento" tabindex="-1" aria-labelledby="ModalClareamento" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="ModalClareamento">clareamento dental</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            O clareamento dental é um dos procedimentos estéticos mais populares para quem busca um sorriso mais
+            branco
+            e rejuvenescido. Ao longo do tempo, fatores como o consumo de café, chá, vinho tinto e até o tabagismo
+            podem
+            escurecer os dentes, comprometendo sua cor natural. Com o clareamento dental, é possível remover manchas e
+            devolver aos dentes um tom mais claro, aumentando a confiança e a autoestima.
+
+            Existem diferentes tipos de clareamento dental, incluindo o realizado em consultório com produtos de alta
+            concentração e tecnologia a laser, e o clareamento caseiro supervisionado por um dentista, com moldes
+            personalizados e agentes clareadores seguros. Ambos os métodos oferecem resultados eficazes,
+            proporcionando
+            dentes mais brilhantes e um sorriso renovado.
+
+            O procedimento é seguro, quando feito sob a orientação de um profissional, e pode ser ajustado para
+            minimizar qualquer sensibilidade que o paciente possa ter durante o tratamento. Agende uma consulta com
+            nossa equipe especializada e descubra como o clareamento dental pode transformar o seu sorriso, realçando
+            sua beleza e bem-estar.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn tn-primary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="Carie" tabindex="-1" aria-labelledby="ModalCarie" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="ModalCarie">Restaurações estéticas e tratamentos de lesões de cárie</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            As restaurações estéticas são uma excelente solução para tratar lesões de cárie e devolver aos dentes sua
+            forma, função e aparência natural. Utilizando materiais avançados, como resinas compostas que imitam a cor
+            e
+            a textura dos dentes, esse tipo de tratamento oferece durabilidade e um resultado praticamente invisível.
+
+            O processo de restauração começa com a remoção da cárie e a limpeza da área afetada, seguida pela
+            aplicação
+            da resina em camadas, modeladas e endurecidas com luz especial para garantir uma aderência segura. O
+            acabamento e o polimento final proporcionam um brilho natural, integrando-se perfeitamente ao sorriso.
+
+            Tratar as cáries precocemente com restaurações estéticas não apenas melhora a aparência do dente, mas
+            também
+            previne problemas mais graves, como infecções e danos estruturais. Se você precisa de um reparo discreto e
+            resistente para lesões de cárie ou deseja atualizar restaurações antigas, nossa equipe está pronta para
+            oferecer um atendimento cuidadoso e personalizado. Agende uma consulta e cuide da saúde e beleza do seu
+            sorriso!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn tn-primary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="Cirurgias" tabindex="-1" aria-labelledby="ModalCirurgias" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="ModalCirurgias">Cirurgias de extração de dente
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            A extração de dentes é indicada para casos de infecções, cáries extensas ou falta de espaço, como com os
+            sisos. Nossa clínica realiza o procedimento com avaliação prévia e técnicas seguras sob anestesia local,
+            garantindo conforto. Após a cirurgia, orientamos sobre cuidados pós-operatórios para uma recuperação
+            tranquila. Agende sua consulta para saber mais!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn tn-primary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- /* From Uiverse.io by Na3ar-17 */  -->
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="src/javascript/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+  <script type="text/javascript" src="cssanimation/gsap-version/cssanimation-gsap.js"></script>
+</body>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</html>
