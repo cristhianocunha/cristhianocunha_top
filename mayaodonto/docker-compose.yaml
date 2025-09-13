@@ -1,0 +1,17 @@
+services:
+  web:
+    image: httpd:alpine
+    container_name: apache-website
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/usr/local/apache2/htdocs
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./logs:/usr/local/apache2/logs
+    restart: unless-stopped
+    networks:
+      - web-network
+
+networks:
+  web-network:
+    driver: bridge

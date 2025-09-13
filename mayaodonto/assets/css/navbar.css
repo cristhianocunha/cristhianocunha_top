@@ -1,0 +1,26 @@
+ /* Estilos adicionais para ajustar a barra de navegação */
+ .navbar {
+    min-height: 30px; /* Ajuste a altura conforme necessário */
+    background-color: transparent !important;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff; /* Adicione uma cor de fundo para o ícone do hamburguer se necessário */
+}
+
+.navbar-nav .nav-link {
+    color: #000000; /* Ajuste a cor do texto para melhor visibilidade */
+    background-color: #ffffff;
+
+}
+
+.navbar-toggler-icon {
+    width: 1.5em; /* Ajuste o tamanho do ícone do hamburguer conforme necessário */
+    height: 1.5em;
+}
+
+/* Ajuste a altura dos itens do menu conforme necessário */
+.navbar-nav .nav-link {
+    padding: 5px 5px;
+    line-height: 30px; /* Centraliza verticalmente o texto na barra */
+}
