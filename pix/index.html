@@ -104,6 +104,9 @@
 
 
     <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const parametro = urlParams.get('banco');
+        console.log(parametro);
         function copyPIX(keypix) {
             const pixKey = document.getElementById(keypix).textContent;
             navigator.clipboard.writeText(pixKey).then(() => {
