@@ -42,11 +42,12 @@
             background-color: #218838;
         }
     </style>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 </head>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script> -->
-
 
 <body>
     <nav>
@@ -58,55 +59,68 @@
             <li><a href="https://www.instagram.com/cristhianocunha/" class="contrast">instagram</a></li>
         </ul>
     </nav>
+    <div x-data="{ parametro: '' }" x-init="parametro = new URLSearchParams(window.location.search).get('banco')">
+        <span x-text="parametro"></span>
 
-    <h1>Chaves PIX de Cristhiano Cunha</h1>
+        <h1>Chaves PIX de Cristhiano Cunha</h1>
+        <div x-show="parametro === ' ' || parametro === null || parametro == 'bb' ">
+            <article>
+                <!-- Banco do Brasil -->
+                <header>
+                    <h2>Pagamento Banco do Brasil</h2>
+                </header>
+                <p class="pix-key" id="pix-key-bb">659fb3c1-39e3-49b9-bbe7-bfff258b9a40</p>
+                <footer> <button onclick="copyPIX('pix-key-bb')">Copiar PIX</button></footer>
+            </article>
+        </div>
+        <div x-show="parametro === ' ' || parametro === null || parametro == 'inter' ">
+            <!-- Banco inter -->
+            <article>
+                <header>
+                    <h2>Pagamento Inter</h2>
+                </header>
+                <p class="pix-key" id="pix-key-bb">16d98e34-db4d-40b3-8074-5a17a06c061f</p>
+                <footer><button onclick="copyPIX('pix-key-bb')">Copiar PIX</button></footer>
+            </article>
+        </div>
+        <!-- RecargaPlay -->
+        <div x-show="parametro === ' ' || parametro === null || parametro == 'recargaplay' ">
+            <article>
+                <header>
+                    <h2>Pagamento RecargaPlay</h2>
+                </header>
+                <p class="pix-key" id="pix-key-rp">c3909d21-b11f-41a0-a2f0-c0f125d2e53c</p>
+                <footer> <button onclick="copyPIX('pix-key-rp')">Copiar PIX</button></footer>
+            </article>
+        </div>
+        <!-- Mercado Pago -->
+        <div x-show="parametro === ' ' || parametro === null || parametro == 'mercadopago' ">
+            <article>
+                <header>
+                    <h2>Pagamento Mercado Pago</h2>
+                </header>
+                <p class="pix-key" id="pix-key-MC">b76923e1-daca-4fca-a7f2-60e61a907b01</p>
+                <footer><button onclick="copyPIX('pix-key-MC')">Copiar PIX</button></footer>
+            </article>
+        </div>
+        <!-- Midway(Riachuelo) -->
+        <div x-show="parametro === ' ' || parametro === null || parametro == 'midway' ">
+            <article>
+                <header>
+                    <h2>Pagamento Midway(Riachuelo)</h2>
+                </header>
+                <p class="pix-key" id="pix-key-MC">6e6152ef-451e-4be2-98e3-ffde374b3b63</p>
+                <footer> <button onclick="copyPIX('pix-key-MC')">Copiar PIX</button></footer>
+            </article>
+        </div>
+        <div
+            x-show="parametro != ' ' && parametro != null && parametro != 'inter' && parametro != 'bb' && parametro != 'recargaplay' && parametro != 'mercadopago' && parametro != 'midway' ">
+            <p>Parâmetro inválido. Use ?banco=bb, ?banco=inter, ?banco=recargaplay, ?banco=mercadopago ou ?banco=midway
+                na URL.</p>
 
-    <article>
-        <!-- Banco do Brasil -->
-        <header>
-            <h2>Pagamento Banco do Brasil</h2>
-        </header>
-        <p class="pix-key" id="pix-key-bb">659fb3c1-39e3-49b9-bbe7-bfff258b9a40</p>
-        <footer> <button onclick="copyPIX('pix-key-bb')">Copiar PIX</button></footer>
-    </article>
-    <!-- Banco inter -->
-    <article>
-        <header>
-            <h2>Pagamento Inter</h2>
-        </header>
-        <p class="pix-key" id="pix-key-bb">16d98e34-db4d-40b3-8074-5a17a06c061f</p>
-        <footer><button onclick="copyPIX('pix-key-bb')">Copiar PIX</button></footer>
-    </article>
-    <!-- RecargaPlay -->
-    <article>
-        <header>
-            <h2>Pagamento RecargaPlay</h2>
-        </header>
-        <p class="pix-key" id="pix-key-rp">c3909d21-b11f-41a0-a2f0-c0f125d2e53c</p>
-        <footer> <button onclick="copyPIX('pix-key-rp')">Copiar PIX</button></footer>
-    </article>
-    <!-- Mercado Pago -->
-    <article>
-        <header>
-            <h2>Pagamento Mercado Pago</h2>
-        </header>
-        <p class="pix-key" id="pix-key-MC">b76923e1-daca-4fca-a7f2-60e61a907b01</p>
-        <footer><button onclick="copyPIX('pix-key-MC')">Copiar PIX</button></footer>
-    </article>
-    <!-- Midway(Riachuelo) -->
-    <article>
-        <header>
-            <h2>Pagamento Midway(Riachuelo)</h2>
-        </header>
-        <p class="pix-key" id="pix-key-MC">6e6152ef-451e-4be2-98e3-ffde374b3b63</p>
-        <footer> <button onclick="copyPIX('pix-key-MC')">Copiar PIX</button></footer>
-    </article>
-
-
+        </div>
+    </div>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const parametro = urlParams.get('banco');
-        console.log(parametro);
         function copyPIX(keypix) {
             const pixKey = document.getElementById(keypix).textContent;
             navigator.clipboard.writeText(pixKey).then(() => {
