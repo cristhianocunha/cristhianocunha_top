@@ -121,6 +121,10 @@
         </div>
     </div>
     <script>
+        // function qrcode(keypix) {
+        //     fetch('https://gerarqrcodepix.com.br/api/v1?nome=Cristhiano%20rodrigo%20cunha&cidade=S%C3%A3oluis&saida=qr&chave=' + keypix)
+        //         .then(response => response.blob())
+        // }
         function copyPIX(keypix) {
             const pixKey = document.getElementById(keypix).textContent;
             navigator.clipboard.writeText(pixKey).then(() => {
