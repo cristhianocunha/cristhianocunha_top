@@ -3790,3 +3790,34 @@ input, select, textarea {
 			border-radius: 100%;
 			border: solid 1px;
 		}
+
+		/* * Estilo da grade da galeria
+         * Usamos CSS Grid para criar uma grade responsiva
+        */
+        #lightgallery {
+            display: grid;
+            /* Cria colunas automáticas de no mínimo 200px */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px; /* Espaçamento entre as imagens */
+        }
+        
+        /* Estilo das miniaturas */
+        #lightgallery a {
+            display: block;
+            border-radius: 8px;
+            overflow: hidden; /* Garante que a imagem não saia da borda arredondada */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        #lightgallery a:hover {
+            transform: scale(1.05); /* Efeito de zoom no hover */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        #lightgallery img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+			object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+            display: block; /* Remove espaço extra abaixo da imagem */
+            cursor: pointer;
+        }
