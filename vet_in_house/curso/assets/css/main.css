@@ -3411,7 +3411,7 @@ input, select, textarea {
 			#main input[type="button"].primary,
 			#main button.primary,
 			#main .button.primary {
-				background-color: #8cc9f0;
+				background-color: #fa7f7f;
 				color: #ffffff !important;
 				box-shadow: none;
 			}
@@ -3421,7 +3421,8 @@ input, select, textarea {
 				#main input[type="button"].primary:hover,
 				#main button.primary:hover,
 				#main .button.primary:hover {
-					background-color: #9acff2;
+					background-color: #ff0000;
+					color: #ffffff !important;
 				}
 
 				#main input[type="submit"].primary:active,
