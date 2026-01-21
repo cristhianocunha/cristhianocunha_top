@@ -42,7 +42,7 @@
 		</nav>
 
 		<!-- Main -->
-		<div id="main">
+		<div id="main" x-data="{ open1: false }">
 
 			<!-- Introduction -->
 			<section id="intro" class="main">
@@ -54,10 +54,15 @@
 						<p>A Vet in Home nasceu do desejo de inovar e surpreender o mercado pet maranhense. Oferecemos
 							um conceito único, levando qualidade, confiança e um atendimento diferenciado diretamente
 							até a sua casa.</p>
-						<ul class="actions">
-							<li><a href="https://api.whatsapp.com/send?phone=559899757875" class="button">Entre em
-									contato</a></li>
-						</ul>
+						<button class="btn-abrir" id="openModal">Entre em contato</button>
+
+    <div id="n8nModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe src="https://n8n.cristhianocunha.top/form/e3abb4cd-2e4d-4d01-9209-daccedb1fac7" title="Formulário n8n"></iframe>
+        </div>
+    </div>
+
 					</div>
 					<span class="image"><img src="images/file.png" alt="" /></span>
 				</div>
@@ -192,18 +197,16 @@
 					</div>
 
 					<template x-teleport="body">
-						<div x-show="open" style="display: none;" class= "modal-backdrop"
+						<div x-show="open" style="display: none;" class="modal-backdrop"
 							x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
 							x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
 							x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-								<div class="modal-content " @click.outside="open = false">
+							<div class="modal-content " @click.outside="open = false">
 								<button @click="open = false" class=" btn btn-close">
 									X
 								</button>
 								<img :src=" 'images/' + activeImage + '.jpeg' "
 									style="width: 100%; border-radius: 10px;">
-
-
 							</div>
 						</div>
 					</template>
