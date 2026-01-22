@@ -1,137 +1,124 @@
+/* Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
 body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://tiaju.my.canva.site/contatos-tia-ju-tamanho-original/images/5f8416c2227403fad799ebae426a2c2f.jpg');
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 5px;
-            
-            text-align: center;
-        }
-
-        .icon-container {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: #007bff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        .icon img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 50%;
-        }
-
-        .button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn-primary {
-            color: #009ba7;
-            background-color: #ffffff;
-            border-color: #0d6efd;
-        }
-        :root {
-            --bs-blue: #137e6f;
-            --bs-indigo: #6610f2;
-            --bs-purple: #6f42c1;
-            --bs-pink: #d63384;
-            --bs-red: #dc3545;
-            --bs-orange: #fd7e14;
-            --bs-yellow: #ffc107;
-            --bs-green: #198754;
-            --bs-teal: #20c997;
-            --bs-cyan: #0dcaf0;
-            --bs-white: #fff;
-            --bs-gray: #6c757d;
-            --bs-gray-dark: #343a40;
-            --bs-primary: #0d6efd;
-            --bs-secondary: #6c757d;
-            --bs-success: #198754;
-            --bs-info: #0dcaf0;
-            --bs-warning: #ffc107;
-            --bs-danger: #dc3545;
-            --bs-light: #f8f9fa;
-            --bs-dark: #212529;
-            --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-          }
-          .container {
-            min-height: 300px; /* ou ajuste conforme necessário */
-        }
-        .btn {
-            min-width: 200px;
-        }
-        
-        .float {
-            position: fixed;
-            cursor: pointer;
-            display: block;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: rgba(0, 200, 0, 1);
-            color: white;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            transition-duration: 0.5s;
-            animation: pulse 3s infinite;
-            z-index: 9000;
-        }
-        a {
-  color: black; /* Ou outra cor desejada */
-  text-decoration: none; /* Remove o sublinhado */
+    background-color: #f8f9fa; /* Fundo levemente cinza para destacar o card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-/* Estilos para os diferentes estados do link */
-a:link { /* Link não visitado */
-  color: black;
-  text-decoration: none;
+.container {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
 }
 
-a:visited { /* Link já visitado */
-  color: purple; /* Ou outra cor, ex: gray */
-  text-decoration: none;
+/* Header/Perfil */
+.profile {
+    margin-bottom: 30px;
 }
 
-a:hover { /* Mouse sobre o link */
-  color: rgb(0, 0, 0); /* Cor ao passar o mouse */
-  text-decoration: underline; /* Opcional: sublinhado no hover */
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
-a:active { /* Link sendo clicado */
-  color: red;
-  text-decoration: none;
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile h1 {
+    color: #0b2545; /* Azul Escuro */
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.profile p {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* Botões/Links */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.link-card {
+    background-color: #ffffff;
+    color: #0b2545;
+    text-decoration: none;
+    padding: 18px;
+    border-radius: 50px; /* Bordas arredondadas estilo Linktree */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #e0e0e0;
+}
+
+.link-card i {
+    position: absolute;
+    left: 20px;
+    font-size: 1.2rem;
+}
+
+.link-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: #f0f4f8;
+}
+
+/* Destaque para o link principal (ex: Agendar) */
+.link-card.highlight {
+    background-color: #ffc7ff; /* Verde água suave */
+    color: #0b2545;
+    border: none;
+}
+
+.link-card.highlight:hover {
+    background-color: #cc94cc;
+}
+
+/* Redes Sociais e Rodapé */
+.social-icons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #0b2545;
+    font-size: 1.5rem;
+    transition: opacity 0.3s;
+}
+
+.social-icons a:hover {
+    opacity: 0.7;
+}
+
+.footer-text {
+    margin-top: 25px;
+    font-size: 0.8rem;
+    color: #999;
 }
