@@ -90,7 +90,7 @@ body {
 
 /* Destaque para o link principal (ex: Agendar) */
 .link-card.highlight {
-    background-color: #a8dadc; /* Verde água suave */
+    background-color: #ffc7ff; /* Verde água suave */
     color: #0b2545;
     border: none;
 }
