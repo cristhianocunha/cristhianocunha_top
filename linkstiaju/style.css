@@ -110,3 +110,28 @@ body {
             animation: pulse 3s infinite;
             z-index: 9000;
         }
+        a {
+  color: black; /* Ou outra cor desejada */
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+/* Estilos para os diferentes estados do link */
+a:link { /* Link não visitado */
+  color: black;
+  text-decoration: none;
+}
+
+a:visited { /* Link já visitado */
+  color: purple; /* Ou outra cor, ex: gray */
+  text-decoration: none;
+}
+
+a:hover { /* Mouse sobre o link */
+  color: rgb(0, 0, 0); /* Cor ao passar o mouse */
+  text-decoration: underline; /* Opcional: sublinhado no hover */
+}
+
+a:active { /* Link sendo clicado */
+  color: red;
+  text-decoration: none;
+}
