@@ -95,6 +95,13 @@ body {
     border: none;
 }
 
+/* Destaque para o link principal (ex: Agendar) */
+.link-card.highlight_2 {
+    background-color: #ffe3ff; /* Verde água suave */
+    color: #0b2545;
+    border: none;
+}
+
 .link-card.highlight:hover {
     background-color: #cc94cc;
 }
