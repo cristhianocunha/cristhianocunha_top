@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristhiano Cunha — Currículo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <style>
+    body { max-width: 860px; margin: 0 auto; padding: 2rem 1rem; }
+    header { border-bottom: 2px solid var(--pico-primary); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+    header h1 { margin-bottom: 0.25rem; }
+    header p { margin: 0; color: var(--pico-muted-color); }
+    header .contacts { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+    header .contacts a { text-decoration: none; }
+    section { margin-bottom: 2rem; }
+    section h2 { border-bottom: 1px solid var(--pico-muted-border-color); padding-bottom: 0.25rem; }
+    .job { margin-bottom: 1.5rem; }
+    .job-header { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.25rem; }
+    .job-header strong { font-size: 1rem; }
+    .job-header span { color: var(--pico-muted-color); font-size: 0.9rem; }
+    .company { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    ul { margin-top: 0.5rem; }
+    #theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      background: none;
+      border: 1px solid var(--pico-muted-border-color);
+      border-radius: 2rem;
+      line-height: 1;
+    }
+    @media print {
+      body { padding: 0; }
+      a { color: inherit; text-decoration: none; }
+      #theme-toggle { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <button id="theme-toggle" title="Alternar tema">🌙</button>
+  <script>
+    const btn = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    btn.addEventListener('click', () => {
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      btn.textContent = isDark ? '🌙' : '☀️';
+    });
+  </script>
+  <header>
+    <h1>Cristhiano Cunha</h1>
+    <p><strong>Desenvolvedor Web Full Stack | PHP (Laravel) | DevOps</strong></p>
+    <p>📍 São Luís, Maranhão, Brasil</p>
+    <div class="contacts">
+      <span>📞 (98) 98126-1668</span>
+      <a href="mailto:cristhiano.cunha@gmail.com">✉️ cristhiano.cunha@gmail.com</a>
+      <a href="https://www.linkedin.com/in/cristhiano-cunha" target="_blank">🔗 LinkedIn</a>
+      <a href="https://cristhianocunha.top/" target="_blank">🌐 Portfólio</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Resumo Profissional</h2>
+    <p>
+      Desenvolvedor Web com foco em PHP (Laravel) e ecossistema DevOps, acumulando experiência técnica em
+      desenvolvimento de sistemas, integração de APIs e automação de fluxos. Especialista na criação de
+      Chatbots com Typebot integrados via JavaScript e rotas de API. Possuo sólida base em infraestrutura
+      como código (Terraform, Ansible) e Cloud Computing (AWS/Azure), fruto de especializações e
+      participação em programas de elite como o Caça Talentos DevOps da 4Linux. Pós-graduado em
+      Desenvolvimento de Sistemas e Bacharel em Ciência da Computação.
+    </p>
+  </section>
+
+  <section>
+    <h2>Principais Competências</h2>
+    <ul>
+      <li><strong>Linguagens &amp; Frameworks:</strong> PHP (Laravel), JavaScript, C, Python.</li>
+      <li><strong>Backend &amp; Dados:</strong> Integração de APIs REST, SQL (Consultas e manutenção), Bancos de Dados.</li>
+      <li><strong>DevOps &amp; Cloud:</strong> Docker, Linux, AWS, Azure, Terraform, Ansible (Infraestrutura como Código).</li>
+      <li><strong>Automação:</strong> Typebot (Chatbots e fluxos de validação de dados).</li>
+      <li><strong>Segurança &amp; Redes:</strong> Cybersecurity Essentials, Pentest, Redes de Computadores, Mikrotik.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Experiência Profissional</h2>
+
+    <div class="job">
+      <p class="company">ADDSALES</p>
+
+      <div class="job-header">
+        <strong>Desenvolvedor Web JR III</strong>
+        <span>Setembro de 2025 – Atual</span>
+      </div>
+      <ul>
+        <li><strong>Desenvolvimento Laravel:</strong> Atuação na manutenção e evolução de sistemas utilizando o framework Laravel.</li>
+        <li><strong>Integrações de APIs:</strong> Responsável pela integração com APIs externas para processamento e armazenamento seguro de dados.</li>
+        <li><strong>Automação de Atendimento:</strong> Criação de Chatbots via Typebot/WhatsApp, desenvolvendo fluxos lógicos e validações via scripts JavaScript e rotas de API.</li>
+        <li><strong>Gestão de Dados:</strong> Execução de consultas SQL complexas para atualização e manutenção da integridade do banco de dados.</li>
+      </ul>
+
+      <div class="job-header" style="margin-top: 1rem;">
+        <strong>Desenvolvedor Web JR I</strong>
+        <span>Janeiro de 2024 – Setembro de 2025</span>
+      </div>
+      <ul>
+        <li>Desenvolvimento de Landing Pages interativas com formulários processados em PHP.</li>
+        <li>Aplicação de boas práticas de desenvolvimento web e integração de banco de dados.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <p class="company">UEMANET</p>
+      <div class="job-header">
+        <strong>Tutor Remoto de Tecnologia</strong>
+        <span>Outubro de 2024 – Atual</span>
+      </div>
+      <ul>
+        <li>Orientação técnica e acadêmica de alunos em disciplinas de programação e tecnologia.</li>
+        <li><strong>Mentoria Técnica:</strong> Idealização e instrução de curso extra de Git &amp; GitHub para capacitação em controle de versão e colaboração.</li>
+        <li>Avaliação de performance e feedback construtivo para o desenvolvimento profissional dos alunos.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <p class="company">Grupo Innovare / USNOTE</p>
+      <div class="job-header">
+        <strong>Analista de Suporte / Consultor de Tecnologia</strong>
+        <span>Novembro de 2021 – Agosto de 2022</span>
+      </div>
+      <ul>
+        <li>Suporte técnico de hardware/software, gerenciamento de tickets e administração de contas de usuário (Active Directory).</li>
+        <li>Configuração de redes, backups regulares e implementação de políticas de segurança de TI.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Formação Acadêmica</h2>
+    <ul>
+      <li><strong>Pós-graduação Lato Sensu:</strong> Análise e Desenvolvimento de Programas e Aplicações Interativas – Faculdade Descomplica.</li>
+      <li><strong>Bacharelado:</strong> Ciência da Computação – Faculdade Pitágoras.</li>
+      <li><strong>Técnico:</strong> Tecnologia da Informação (Informática) – IFSE.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Certificações e Cursos</h2>
+    <ul>
+      <li><strong>Caça Talentos em DevOps:</strong> Selecionado entre 30 participantes (4Linux).</li>
+      <li><strong>Infraestrutura Ágil &amp; IaC:</strong> DevOps, Terraform e Ansible na AWS.</li>
+      <li><strong>Segurança:</strong> Cybersecurity Essentials (Cisco) e Introdução ao Hacking e Pentest.</li>
+      <li><strong>Idiomas:</strong> Inglês (Nível Elementar).</li>
+    </ul>
+  </section>
+</body>
+</html>
