@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐳 Docker Cheat Sheet - Comandos Essenciais</title>
+    <!-- Fonte Inter (Moderna) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Tailwind Lite (Estilo manual para não pesar, mas com visual moderno) -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a; /* Slate 900 */
+            color: #e2e8f0;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #f1f5f9;
+        }
+        h1 span {
+            background: #1d4ed8;
+            padding: 4px 12px;
+            font-size: 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 8px;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-btn:hover {
+            background: #1e293b;
+            color: #f1f5f9;
+        }
+        .tab-btn.active {
+            background: #1d4ed8;
+            color: white;
+        }
+
+        /* Search */
+        .search-box {
+            margin-bottom: 24px;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        .search-box input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        .search-box input::placeholder {
+            color: #64748b;
+        }
+
+        /* Table Card */
+        .table-container {
+            background: #1e293b;
+            border-radius: 24px;
+            padding: 8px;
+            border: 1px solid #334155;
+            overflow-x: auto;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        th {
+            text-align: left;
+            padding: 18px 16px;
+            font-weight: 600;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #334155;
+        }
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #2d3a4f;
+            vertical-align: top;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .command-code {
+            font-family: 'Courier New', Courier, monospace;
+            background: #0f172a;
+            color: #7dd3fc;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            display: inline-block;
+            border: 1px solid #1e40af;
+            word-break: break-all;
+        }
+        .desc-text {
+            color: #cbd5e1;
+        }
+        .example-text {
+            color: #a5f3fc;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            background: #0f172a80;
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 6px;
+        }
+        .badge {
+            background: #1d4ed8;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 8px;
+        }
+        .empty-message {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+            font-style: italic;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        .copy-tip {
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        .copy-tip:active {
+            opacity: 0.6;
+        }
+        /* Highlight */
+        .highlight {
+            background: #2d3a4f;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" x-data="dockerCheatSheet()">
+    <h1>
+        🐳 Docker Cheat Sheet 
+        <span>v24+</span>
+    </h1>
+    <div class="subtitle">
+        Comandos essenciais para sobreviver no terminal • Pressione Ctrl+F ou use a busca abaixo
+    </div>
+
+    <!-- Tabs / Filtro por Categoria -->
+    <div class="tabs">
+        <template x-for="cat in categories" :key="cat">
+            <button 
+                class="tab-btn" 
+                :class="{ 'active': activeTab === cat }"
+                @click="activeTab = cat"
+                x-text="cat">
+            </button>
+        </template>
+    </div>
+
+    <!-- Busca Textual -->
+    <div class="search-box">
+        <input 
+            type="text" 
+            placeholder="🔍 Filtrar comandos... (ex: run, compose, prune)" 
+            x-model="searchQuery"
+            @input="activeTab = 'Todos'">
+    </div>
+
+    <!-- Tabela Dinâmica -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Comando</th>
+                    <th>Descrição</th>
+                    <th>Exemplo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template x-for="cmd in filteredCommands" :key="cmd.command">
+                    <tr>
+                        <td>
+                            <span class="command-code" 
+                                  @click="copyToClipboard(cmd.command)"
+                                  :title="'Clique para copiar: ' + cmd.command">
+                                <span x-text="cmd.command"></span>
+                                <span style="margin-left:8px; opacity:0.6;">📋</span>
+                            </span>
+                            <template x-if="cmd.tag">
+                                <span class="badge" x-text="cmd.tag"></span>
+                            </template>
+                        </td>
+                        <td class="desc-text" x-text="cmd.description"></td>
+                        <td>
+                            <span class="example-text" x-text="cmd.example"></span>
+                        </td>
+                    </tr>
+                </template>
+                <tr x-show="filteredCommands.length === 0">
+                    <td colspan="3" class="empty-message">
+                        Nenhum comando encontrado para "<span x-text="searchQuery"></span>"
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        ⚡ Clique no comando para copiar • Docker Essentials • Aula Prática Windows 11
+    </div>
+</div>
+
+<script>
+    function dockerCheatSheet() {
+        return {
+            // Estado
+            activeTab: 'Todos',
+            searchQuery: '',
+            
+            // Categorias baseadas nos dados
+            categories: ['Todos', 'Info', 'Container', 'Imagem', 'Execução', 'Limpeza', 'Compose'],
+            
+            // Base de dados completa
+            allCommands: [
+                // Info
+                { command: 'docker --version', description: 'Versão instalada do Docker', example: 'Docker version 24.0.7', category: 'Info' },
+                { command: 'docker info', description: 'Informações detalhadas do sistema', example: 'docker info', category: 'Info' },
+                { command: 'docker ps', description: 'Lista containers ativos', example: 'docker ps', category: 'Info' },
+                { command: 'docker ps -a', description: 'Lista TODOS os containers', example: 'docker ps -a', category: 'Info' },
+                { command: 'docker images', description: 'Lista imagens baixadas', example: 'docker images', category: 'Info' },
+                { command: 'docker stats', description: 'Uso de CPU/Memória em tempo real', example: 'docker stats', category: 'Info' },
+                
+                // Container
+                { command: 'docker run <imagem>', description: 'Cria e inicia um novo container', example: 'docker run nginx', category: 'Container' },
+                { command: 'docker run -d <imagem>', description: 'Roda em background (detached)', example: 'docker run -d nginx', category: 'Container', tag: 'fundo' },
+                { command: 'docker run -it <imagem> bash', description: 'Modo interativo com terminal', example: 'docker run -it ubuntu bash', category: 'Container' },
+                { command: 'docker run --name <nome> <img>', description: 'Nomeia o container', example: 'docker run --name web nginx', category: 'Container' },
+                { command: 'docker run -p 8080:80 <img>', description: 'Mapeia porta host:container', example: 'docker run -p 8080:80 nginx', category: 'Container' },
+                { command: 'docker run -v <host>:<container>', description: 'Bind mount (pasta compartilhada)', example: 'docker run -v C:/site:/usr/share/nginx/html nginx', category: 'Container' },
+                { command: 'docker start <nome/id>', description: 'Inicia container parado', example: 'docker start meu-container', category: 'Container' },
+                { command: 'docker stop <nome/id>', description: 'Para container rodando', example: 'docker stop meu-container', category: 'Container' },
+                { command: 'docker restart <nome/id>', description: 'Reinicia container', example: 'docker restart meu-container', category: 'Container' },
+                { command: 'docker rm <nome/id>', description: 'Remove container parado', example: 'docker rm meu-container', category: 'Container' },
+                { command: 'docker rm -f <nome/id>', description: 'Força remoção (rodando ou não)', example: 'docker rm -f meu-container', category: 'Container', tag: 'force' },
+                
+                // Imagem
+                { command: 'docker pull <imagem>', description: 'Baixa imagem do Docker Hub', example: 'docker pull mysql:8.0', category: 'Imagem' },
+                { command: 'docker rmi <imagem>', description: 'Remove imagem local', example: 'docker rmi nginx', category: 'Imagem' },
+                { command: 'docker build -t <nome>:<tag> .', description: 'Cria imagem a partir de Dockerfile', example: 'docker build -t meu-app:v1 .', category: 'Imagem' },
+                { command: 'docker tag <orig> <dest>', description: 'Renomeia/copia tag', example: 'docker tag meu-app:v1 meu-app:latest', category: 'Imagem' },
+                { command: 'docker push <imagem>', description: 'Envia imagem para registro', example: 'docker push usuario/meu-app:v1', category: 'Imagem' },
+                
+                // Execução / Inspeção
+                { command: 'docker exec -it <cont> bash', description: 'Executa comando em container ativo', example: 'docker exec -it web bash', category: 'Execução' },
+                { command: 'docker logs <cont>', description: 'Mostra logs do container', example: 'docker logs web', category: 'Execução' },
+                { command: 'docker logs -f <cont>', description: 'Segue logs em tempo real', example: 'docker logs -f web', category: 'Execução' },
+                { command: 'docker inspect <cont>', description: 'Detalhes completos em JSON', example: 'docker inspect web', category: 'Execução' },
+                { command: 'docker cp <orig> <dest>', description: 'Copia arquivos host/container', example: 'docker cp arquivo.txt web:/tmp/', category: 'Execução' },
+                
+                // Limpeza
+                { command: 'docker system df', description: 'Mostra uso de disco', example: 'docker system df', category: 'Limpeza' },
+                { command: 'docker system prune', description: 'Remove containers parados e redes', example: 'docker system prune', category: 'Limpeza' },
+                { command: 'docker system prune -a', description: 'Remove TUDO não usado (cuidado!)', example: 'docker system prune -a -f', category: 'Limpeza', tag: 'limpeza' },
+                { command: 'docker container prune', description: 'Remove todos containers parados', example: 'docker container prune', category: 'Limpeza' },
+                { command: 'docker image prune', description: 'Remove imagens sem tag (dangling)', example: 'docker image prune', category: 'Limpeza' },
+                
+                // Compose
+                { command: 'docker-compose up', description: 'Sobe serviços do docker-compose.yml', example: 'docker-compose up', category: 'Compose' },
+                { command: 'docker-compose up -d', description: 'Sobe em background', example: 'docker-compose up -d', category: 'Compose' },
+                { command: 'docker-compose down', description: 'Para e remove containers/rede', example: 'docker-compose down', category: 'Compose' },
+                { command: 'docker-compose down -v', description: 'Remove também volumes', example: 'docker-compose down -v', category: 'Compose' },
+                { command: 'docker-compose ps', description: 'Lista containers do Compose', example: 'docker-compose ps', category: 'Compose' },
+                { command: 'docker-compose logs', description: 'Mostra logs de todos serviços', example: 'docker-compose logs', category: 'Compose' },
+                { command: 'docker-compose restart', description: 'Reinicia todos serviços', example: 'docker-compose restart', category: 'Compose' },
+            ],
+            
+            // Computed: comandos filtrados
+            get filteredCommands() {
+                let filtered = this.allCommands;
+                
+                // Filtro por categoria (tab)
+                if (this.activeTab !== 'Todos') {
+                    filtered = filtered.filter(cmd => cmd.category === this.activeTab);
+                }
+                
+                // Filtro por busca textual
+                if (this.searchQuery.trim() !== '') {
+                    const query = this.searchQuery.toLowerCase();
+                    filtered = filtered.filter(cmd => 
+                        cmd.command.toLowerCase().includes(query) ||
+                        cmd.description.toLowerCase().includes(query) ||
+                        cmd.example.toLowerCase().includes(query)
+                    );
+                }
+                
+                return filtered;
+            },
+            
+            // Método para copiar comando
+            copyToClipboard(text) {
+                // Extrai apenas o comando base sem descrições extras se houver espaços, mas mantém como está.
+                navigator.clipboard.writeText(text).then(() => {
+                    // Pequeno feedback visual (poderia ser um toast, mas é simples)
+                    alert(`✅ Comando copiado: ${text}`);
+                }).catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                });
+            }
+        }
+    }
+</script>
+</body>
+</html>
