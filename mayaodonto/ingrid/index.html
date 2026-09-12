@@ -61,8 +61,10 @@
 
 		<!-- Wrapper -->
 		<div id="wrapper">
-			<span class="banner img-fluid d-none d-md-block"><img src="../images/banner.png"
-					alt="banner" /></span>
+			<span class="banner img-fluid d-none d-md-block"><picture>
+				<source media="(max-width: 920px)" srcset="../images/banner-movel.jpg">
+				<img class="img-fluid" src="../images/banner.jpg" alt="banner" loading="eager" fetchpriority="high" />
+			</picture></span>
 			<!-- Header -->
 			<!-- Wrapper -->
 			<nav class="navbar navbar-expand-lg navbar-light bg-light d-lg-none fixed-top">

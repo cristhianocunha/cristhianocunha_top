@@ -24,3 +24,21 @@
     padding: 5px 5px;
     line-height: 30px; /* Centraliza verticalmente o texto na barra */
 }
+
+/* Mapa do Google responsivo */
+.map-responsive {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* proporção 16:9 */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -2084,7 +2084,7 @@ input[type="reset"].primary,
 input[type="button"].primary,
 button.primary,
 .button.primary {
-	background-color: #8cc9f0;
+	background-color: #3f4a2b;
 	color: #ffffff !important;
 	box-shadow: none;
 }
@@ -2094,7 +2094,7 @@ input[type="reset"].primary:hover,
 input[type="button"].primary:hover,
 button.primary:hover,
 .button.primary:hover {
-	background-color: #9acff2;
+	background-color: #556339;
 }
 
 input[type="submit"].primary:active,
@@ -2102,7 +2102,7 @@ input[type="reset"].primary:active,
 input[type="button"].primary:active,
 button.primary:active,
 .button.primary:active {
-	background-color: #7ec3ee;
+	background-color: #2e3620;
 }
 
 input[type="submit"].primary.icon:before,
@@ -3088,6 +3088,7 @@ table.alt tbody tr td {
 
 .featuresseng a {
 	text-decoration: none;
+	border-bottom: none;
 }
 
 
@@ -3506,6 +3507,8 @@ body.is-preload #header.alt .logo {
 	background-color: #ffffff;
 	color: #636363;
 	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 	width: 64em;
 	max-width: calc(100% - 4em);
 	padding: 1em;
@@ -3719,7 +3722,7 @@ body.is-preload #header.alt .logo {
 #main input[type="button"].primary,
 #main button.primary,
 #main .button.primary {
-	background-color: #8cc9f0;
+	background-color: #3f4a2b;
 	color: #ffffff !important;
 	box-shadow: none;
 }
@@ -3729,7 +3732,7 @@ body.is-preload #header.alt .logo {
 #main input[type="button"].primary:hover,
 #main button.primary:hover,
 #main .button.primary:hover {
-	background-color: #9acff2;
+	background-color: #556339;
 }
 
 #main input[type="submit"].primary:active,
@@ -3737,7 +3740,7 @@ body.is-preload #header.alt .logo {
 #main input[type="button"].primary:active,
 #main button.primary:active,
 #main .button.primary:active {
-	background-color: #7ec3ee;
+	background-color: #2e3620;
 }
 
 #main input[type="submit"].primary.icon:before,
@@ -4103,13 +4106,6 @@ body.is-preload #header.alt .logo {
 	max-width: 100%;
 	height: auto;
 	/* Altura ajustável automaticamente */
-}
-
-@media (max-width: 920px) {
-	.banner {
-		content: url('https://mayaodontologia.com.br/images/banner-movel.png');
-		/* Substitua 'nova_imagem.jpg' pelo caminho da nova imagem */
-	}
 }
 
 .imagem-redonda {
