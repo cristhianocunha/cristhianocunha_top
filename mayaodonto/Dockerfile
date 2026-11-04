@@ -1,5 +1,5 @@
 # Imagem oficial do PHP com Apache
-FROM php:8.2-apache
+FROM php:8.3.36-apache
 
 # Instala dependências e extensões básicas
 RUN apt-get update && apt-get install -y \

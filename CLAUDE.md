@@ -11,7 +11,7 @@ Monorepo of standalone static websites for various clients/projects. Each subdir
 Each site can be run independently via Docker Compose:
 
 ```bash
-# Root site (PHP 8.2 Apache, port 8080)
+# Root site (PHP 8.3 Apache, port 8080)
 docker-compose up
 
 # mayaodonto (Apache httpd, port 8080)
