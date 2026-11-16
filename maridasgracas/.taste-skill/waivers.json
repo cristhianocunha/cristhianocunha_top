@@ -13,5 +13,10 @@
   "check": "hero-lines",
   "target": "section.hero h1",
   "reason": "All three dealt pairings (figtree, host, newsreader) wrap the 43-character stress h1 to 4 lines; the page's final h1, 'Dentista ortodontista em São Luís', takes 3 lines at 1440 and 2 at 1024, 820, 768 and 390 (check.mjs)."
+ },
+ {
+  "check": "map-link",
+  "target": "div.split-col__end.stack-3 > p > a.link",
+  "reason": "The client asked for the Google Maps link of her old site: it opens her own pin (cid 7221528065705835822, 'Dra. Maria das Graças' in the Centro Empresarial Shopping da Ilha), the door itself, not a search, so the check reads an empty query."
  }
 ]

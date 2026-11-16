@@ -53,6 +53,23 @@
   /* the three reviews spread down the photograph's height on a desktop: the statement at the top, the other two under it */
   @media (min-width: 1024px) { #avaliacoes .split-col { justify-content: space-between; } }
   @media (max-width: 639px) { #consultorio .frame { --ratio: 125%; } }
+  /* Invisalign: the aligners and their case, a transparent cut-out standing on the section's ground (no frame, no box);
+     on a desktop as large as the section leaves beside the words, its top on the heading's line and its right edge on
+     the wrap's; stacked under the words below 1024 */
+  #invisalign .invisalign__media img { display: block; width: 100%; height: auto; }
+  @media (max-width: 639px) { #invisalign .wrap > .grid { row-gap: var(--s-6); } }
+  @media (min-width: 640px) {
+    #invisalign .invisalign__media { position: relative; min-height: 0; }
+    #invisalign .invisalign__media img { position: absolute; inset: 0; height: 100%; object-fit: contain; object-position: 50% 50%; }
+  }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    #invisalign .wrap > .grid { display: flex; flex-direction: column; gap: var(--s-6); }
+    #invisalign .invisalign__media { flex: 1 1 0; min-height: 280px; }
+  }
+  @media (min-width: 1024px) {
+    #invisalign .invisalign__media { height: 100%; }
+    #invisalign .invisalign__media img { object-position: 100% 0; }
+  }
   /* the close from a tablet up (the client's ask): the words on the left, her photograph on the right in
      portrait, as tall as the close's row, on the page's 12 columns; a phone keeps the kit's stacked close */
   @media (min-width: 640px) {
@@ -68,7 +85,7 @@
 <link rel="stylesheet" href="http://127.0.0.1:5200/assets/moments/word-highlight/moment.css"></head>
 <body>
 <!-- type: service (site-kind other), a dental clinic
-     deal: hero split, nav nav-split, close close-photo, footer footer-dark, rhythm surface-pairs (#consultorio),
+     deal: hero split, nav nav-split, close close-photo, footer footer-dark, rhythm surface-pairs (#invisalign + #consultorio),
            buttons tonal, mark arc (replaced by the client's logo), palette three-stones, type newsreader (figtree and host failed hero-lines), radius soft, grounds none
      moments: word-highlight in #avaliacoes (the most telling of the three reviews from the old site) -->
 
@@ -104,6 +121,7 @@
           </div>
         </div>
       </div>
+      <div class="nav__item"><a class="nav__link" href="#invisalign">Invisalign</a></div>
       <div class="nav__item"><a class="nav__link" href="#consultorio">Consultório</a></div>
       <div class="nav__item"><a class="nav__link" href="#avaliacoes">Avaliações</a></div>
     </nav>
@@ -159,6 +177,22 @@
     </div>
   </section>
 
+  <!-- Invisalign: the client's text; the picture is Invisalign's own (invisalign.com.br), its white made clear -->
+  <section class="section ground-surface" id="invisalign" aria-labelledby="invisalign-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-6">
+          <h2 id="invisalign-h">Invisalign é investir no seu novo sorriso</h2>
+          <p class="t-lead">Pronto para começar a sua jornada Invisalign? Descubra se o tratamento Invisalign é a opção certa para você.</p>
+          <div class="btn-row"><a class="btn btn--primary" href="https://api.whatsapp.com/send/?phone=559881419938&amp;text=Ol%C3%A1%2C+quero+agendar+uma+avalia%C3%A7%C3%A3o+para+Invisalign+com+a+Dra.+Gra%C3%A7a+Santos&amp;type=phone_number&amp;app_absent=0">Marcar avaliação<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"></path><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"></path></svg></a></div>
+        </div>
+        <div class="invisalign__media span-6 start-7">
+          <img src="assets/fotos/invisalign-estojo.webp" srcset="assets/fotos/invisalign-estojo-640.webp 640w, assets/fotos/invisalign-estojo.webp 1052w" sizes="(max-width: 639px) 342px, (max-width: 1023px) 724px, 628px" width="1052" height="964" alt="Alinhadores transparentes Invisalign saindo do estojo preto aberto, de interior azul" loading="eager" data-source="client" data-subject="product">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section ground-surface" id="consultorio" style="--hm: 2" aria-labelledby="consultorio-h">
     <div class="wrap">
       <div class="grid grid--top">
@@ -168,7 +202,7 @@
           <p>Trabalho com ortodontia para crianças e adultos: aparelhos ortopédicos, fixos e alinhadores. O espaço é amplo e fica em Maranhão Novo, com dentistas parceiros para cirurgias, canal e implantes.</p>
           <div class="split-col__end stack-3">
             <address class="visit__address">Centro Empresarial Shopping da Ilha<br>Maranhão Novo, São Luís</address>
-            <p><a class="link" href="https://www.openstreetmap.org/search?query=Centro%20Empresarial%20Shopping%20da%20Ilha%2C%20S%C3%A3o%20Lu%C3%ADs">Ver no mapa</a></p>
+            <p><a class="link" href="https://www.google.com/maps?cid=7221528065705835822">Ver no mapa</a></p>
           </div>
         </div>
         <div class="frame frame--photo frame--split span-6 start-7">
@@ -223,14 +257,14 @@
           <a class="footer__mark" href="#top"><img src="assets/fotos/logo-branco.png" alt="Dra. Maria das Graças, cirurgiã-dentista" width="152" height="72" loading="eager"></a>
           <p class="footer__lede">Ortodontia em São Luís.</p>
         </div>
-        <div class="span-2 footer__col"><h3>Tratamentos</h3><ul><li><a href="#tratamentos">Ortodontia</a></li><li><a href="#tratamentos">Clareamento</a></li><li><a href="#tratamentos">Restaurações</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Tratamentos</h3><ul><li><a href="#tratamentos">Ortodontia</a></li><li><a href="#invisalign">Invisalign</a></li><li><a href="#tratamentos">Clareamento</a></li><li><a href="#tratamentos">Restaurações</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Consultório</h3><ul><li><a href="#consultorio">Sobre a doutora</a></li><li><a href="#avaliacoes">Avaliações</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Endereço</h3><ul><li><a href="https://www.openstreetmap.org/search?query=Centro%20Empresarial%20Shopping%20da%20Ilha%2C%20S%C3%A3o%20Lu%C3%ADs">Shopping da Ilha</a></li><li>Maranhão Novo</li></ul></div>
+        <div class="span-2 footer__col"><h3>Endereço</h3><ul><li><a href="https://www.google.com/maps?cid=7221528065705835822">Shopping da Ilha</a></li><li>Maranhão Novo</li></ul></div>
         <div class="span-2 footer__col"><h3>Contato</h3><ul><li><a href="https://api.whatsapp.com/send/?phone=559881419938&amp;text=Ol%C3%A1%2C+quero+agendar+uma+consulta+com+a+Dra.+Gra%C3%A7a+Santos&amp;type=phone_number&amp;app_absent=0">WhatsApp</a></li></ul></div>
       </div>
       <div class="footer__legal">
         <span>© 2026 Dra. Maria das Graças</span>
-        <span class="credits">Foto do Shopping da Ilha via Tripadvisor</span>
+        <span class="credits">Foto do Shopping da Ilha via Tripadvisor. Imagem dos alinhadores: Invisalign, marca da Align Technology.</span>
       </div>
     </div>
   </div>

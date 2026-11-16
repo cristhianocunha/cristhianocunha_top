@@ -1,13 +1,13 @@
 {
  "page": "/home/cristhianocunha/code/cristhianocunha_top/maridasgracas/index.html",
  "url": "http://127.0.0.1:5200/index.html",
- "at": "2026-11-16T20:50:56.424Z",
+ "at": "2026-11-16T23:27:02.170Z",
  "out": "/home/cristhianocunha/code/cristhianocunha_top/maridasgracas/.taste-skill/gate/consistency",
  "widths": [
   {
    "width": 1440,
    "height": 900,
-   "screens": 6,
+   "screens": 7,
    "held": 0,
    "errors": [],
    "findings": [
@@ -27,18 +27,38 @@
      "sel": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
      "text": "https://api.whatsapp.com/send/?phone=559",
      "stop": 0,
-     "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 4 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, div.span-2.footer__col:nth-of-type(5) > ul > li > a, ...)",
+     "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 5 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.grid.grid--top > div.span-5.stack-6 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, ...)",
      "crop": "1440-02-phone-number.jpg",
      "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number"
+    },
+    {
+     "check": "map-link",
+     "sev": "FAIL",
+     "sel": "div.span-6.split-col:nth-of-type(1) > div.split-col__end.stack-3 > p > a.link",
+     "text": "Ver no mapa",
+     "msg": "\"Ver no mapa\" searches for nothing: a map of a district or a town shows nobody the door (and 1 more link with the same search)",
+     "stop": 4,
+     "crop": "1440-07-map-link.jpg",
+     "fix": "with a street from the brief, \"Get directions\" to its search; a district only: \"See the area\"; a town only: no map link"
+    },
+    {
+     "check": "scroll-reveal",
+     "sev": "WARN",
+     "sel": "section#consultorio > div.wrap > div.grid.grid--top > div.frame.frame--photo",
+     "text": "",
+     "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "stop": 4,
+     "crop": "1440-08-scroll-reveal.jpg",
+     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
      "check": "scroll-reveal",
      "sev": "WARN",
      "sel": "div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text",
      "text": "“Parabéns pelo seu trabalho, em pensar que na mi",
-     "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
-     "stop": 3,
-     "crop": "1440-07-scroll-reveal.jpg",
+     "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(4) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "stop": 4,
+     "crop": "1440-09-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -46,7 +66,7 @@
      "sev": "WARN",
      "sel": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
      "text": "Marcar consulta",
-     "msg": "\"Marcar consulta\" does not start with a verb (book, buy, try, start, get, see...) (and 1 more like it: \"Ver os tratamentos\")",
+     "msg": "\"Marcar consulta\" does not start with a verb (book, buy, try, start, get, see...) (and 2 more like it: \"Ver os tratamentos\", \"Marcar avaliação\")",
      "stop": 0,
      "crop": "1440-03-copy-buttons.jpg",
      "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")"
@@ -54,7 +74,7 @@
     {
      "check": "section-gaps",
      "sev": "WARN",
-     "sel": "section#tratamentos / section#consultorio",
+     "sel": "section#tratamentos / section#invisalign",
      "text": "",
      "stop": 2,
      "msg": "uneven space at the edge of a band: 72px outside its edge, 120px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
@@ -67,8 +87,8 @@
      "sel": "section#consultorio",
      "text": "Consultório no Centro Empresarial Shopping da Il",
      "msg": "an empty hole 732x288px inside the section (32% of the screen's height), with content above and below it",
-     "stop": 3,
-     "crop": "1440-08-hole.jpg",
+     "stop": 4,
+     "crop": "1440-10-hole.jpg",
      "fix": "close the empty space: move the content together, or give the space the visual it lacks"
     },
     {
@@ -104,7 +124,7 @@
      "sel": "header.nav.nav--split",
      "text": "",
      "stop": 1,
-     "msg": "the nav stays on screen with 3 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
+     "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
      "crop": "1440-05-nav-current.jpg",
      "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls"
     },
@@ -132,9 +152,9 @@
      "sev": "WARN",
      "sel": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
      "text": "marcar consulta",
-     "stop": 6,
+     "stop": 7,
      "msg": "\"marcar consulta\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1440-09-action-repeat.jpg",
+     "crop": "1440-11-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     }
    ],
@@ -143,7 +163,7 @@
   {
    "width": 390,
    "height": 844,
-   "screens": 11,
+   "screens": 12,
    "held": 0,
    "errors": [],
    "findings": [
@@ -160,10 +180,20 @@
     {
      "check": "scroll-reveal",
      "sev": "WARN",
+     "sel": "section#consultorio > div.wrap > div.grid.grid--top > div.frame.frame--photo",
+     "text": "",
+     "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "stop": 5,
+     "crop": "390-05-scroll-reveal.jpg",
+     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
+    },
+    {
+     "check": "scroll-reveal",
+     "sev": "WARN",
      "sel": "div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text",
      "text": "“Parabéns pelo seu trabalho, em pensar que na mi",
      "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
-     "stop": 6,
+     "stop": 7,
      "crop": "390-07-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
@@ -183,7 +213,7 @@
      "sel": "section#avaliacoes",
      "text": "Avaliações de pacientes “Parabéns pelo seu traba",
      "msg": "a section over 1.5 screens long with no link or button in it",
-     "stop": 6,
+     "stop": 8,
      "crop": "390-08-cta.jpg",
      "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
@@ -193,18 +223,8 @@
      "sel": "main#top > section.hero.hero--split / section#tratamentos",
      "text": "",
      "stop": 1,
-     "msg": "121px between these sections, -27% against the median 165px",
+     "msg": "121px between these sections, -42% against the median 209px",
      "crop": "390-03-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "section#tratamentos / section#consultorio",
-     "text": "",
-     "stop": 3,
-     "msg": "209px between these sections, +27% against the median 165px of gaps at a change of ground",
-     "crop": "390-05-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -223,7 +243,7 @@
      "sel": "section#consultorio",
      "text": "Consultório no Centro Empresarial Shoppi",
      "msg": "35% of the section is empty: 528px under its last (div.frame.frame--photo), in its 1491px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 5,
+     "stop": 6,
      "crop": "390-06-empty-area.jpg",
      "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
     }
@@ -244,7 +264,7 @@
  ],
  "shaders": 0,
  "hidden": {
-  "screens": 10,
+  "screens": 12,
   "quick": true
  },
  "sweep": {
@@ -265,8 +285,8 @@
   "findings": []
  },
  "counts": {
-  "FAIL": 2,
-  "WARN": 19
+  "FAIL": 3,
+  "WARN": 20
  },
  "checks": {
   "assets": "PASS",
@@ -408,7 +428,7 @@
   "page-meta": "PASS",
   "share-meta": "PASS",
   "action-repeat": "WARN",
-  "map-link": "PASS",
+  "map-link": "FAIL",
   "open-now": "PASS",
   "assumed": "PASS",
   "run-on": "PASS",

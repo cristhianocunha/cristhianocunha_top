@@ -1,12 +1,12 @@
 {
- "start": "2026-11-16T19:33:28.636Z",
+ "start": "2026-11-16T23:27:01.696Z",
  "round": 0,
  "idle": 0,
  "errors": 0,
  "status": "pass",
  "history": [
   {
-   "at": "2026-11-16T20:52:29.779Z",
+   "at": "2026-11-16T23:28:44.202Z",
    "mode": "manual",
    "status": "pass",
    "fails": 0,
@@ -15,15 +15,7 @@
    "stopHookActive": false
   },
   {
-   "at": "2026-11-16T20:53:58.446Z",
-   "mode": "hook",
-   "host": "claude",
-   "decision": "allow",
-   "reason": "no build is active here",
-   "stopHookActive": false
-  },
-  {
-   "at": "2026-11-16T21:12:20.444Z",
+   "at": "2026-11-16T23:29:52.063Z",
    "mode": "hook",
    "host": "claude",
    "decision": "allow",
@@ -40,11 +32,11 @@
   "category": "dentista ortodontista",
   "primary": "Marcar consulta",
   "rounds": 3,
-  "start": "2026-11-16T19:33:28.636Z",
+  "start": "2026-11-16T23:27:01.696Z",
   "by": "gate.mjs --start"
  },
  "manual": true,
- "fp": "69243bdb6770b445",
+ "fp": "fcf78631f47830ad",
  "page": "index.html",
  "found": {
   "fails": [
@@ -67,7 +59,7 @@
    {
     "check": "phone-number",
     "where": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"https://api.whatsapp.com/send/?phone=559\"",
-    "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 4 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, div.span-2.footer__col:nth-of-type(5) > ul > li > a, ...)",
+    "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 5 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.grid.grid--top > div.span-5.stack-6 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, ...)",
     "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
     "widths": [
      1440
@@ -78,6 +70,22 @@
     ],
     "wheres": [
      "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"https://api.whatsapp.com/send/?phone=559\""
+    ]
+   },
+   {
+    "check": "map-link",
+    "where": "div.span-6.split-col:nth-of-type(1) > div.split-col__end.stack-3 > p > a.link \"Ver no mapa\"",
+    "msg": "\"Ver no mapa\" searches for nothing: a map of a district or a town shows nobody the door (and 1 more link with the same search)",
+    "fix": "with a street from the brief, \"Get directions\" to its search; a district only: \"See the area\"; a town only: no map link",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "map-link"
+    ],
+    "wheres": [
+     "div.span-6.split-col:nth-of-type(1) > div.split-col__end.stack-3 > p > a.link \"Ver no mapa\""
     ]
    },
    {
@@ -100,8 +108,19 @@
   "warns": [
    {
     "check": "scroll-reveal",
+    "where": "section#consultorio > div.wrap > div.grid.grid--top > div.frame.frame--photo",
+    "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "scroll-reveal",
     "where": "div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text \"“Parabéns pelo seu trabalho, em pensar q\"",
-    "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(4) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
     "widths": [
      1440,
@@ -112,7 +131,7 @@
    {
     "check": "copy-buttons",
     "where": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"Marcar consulta\"",
-    "msg": "\"Marcar consulta\" does not start with a verb (book, buy, try, start, get, see...) (and 1 more like it: \"Ver os tratamentos\")",
+    "msg": "\"Marcar consulta\" does not start with a verb (book, buy, try, start, get, see...) (and 2 more like it: \"Ver os tratamentos\", \"Marcar avaliação\")",
     "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")",
     "widths": [
      1440
@@ -121,12 +140,11 @@
    },
    {
     "check": "section-gaps",
-    "where": "section#tratamentos / section#consultorio",
+    "where": "section#tratamentos / section#invisalign",
     "msg": "uneven space at the edge of a band: 72px outside its edge, 120px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
-     1440,
-     390
+     1440
     ],
     "from": "consistency"
    },
@@ -173,7 +191,7 @@
    {
     "check": "nav-current",
     "where": "header.nav.nav--split",
-    "msg": "the nav stays on screen with 3 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
+    "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
     "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls",
     "widths": [
      1440
@@ -244,7 +262,7 @@
    {
     "check": "section-gaps",
     "where": "main#top > section.hero.hero--split / section#tratamentos",
-    "msg": "121px between these sections, -27% against the median 165px",
+    "msg": "121px between these sections, -42% against the median 209px",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      390
@@ -264,7 +282,7 @@
   ],
   "crashed": [],
   "seconds": {
-   "consistency": 90,
+   "consistency": 98,
    "layout": 4
   }
  },
@@ -290,7 +308,7 @@
   {
    "check": "phone-number",
    "where": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"https://api.whatsapp.com/send/?phone=559\"",
-   "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 4 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, div.span-2.footer__col:nth-of-type(5) > ul > li > a, ...)",
+   "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 5 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.grid.grid--top > div.span-5.stack-6 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, ...)",
    "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
    "widths": [
     1440
@@ -303,6 +321,23 @@
     "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"https://api.whatsapp.com/send/?phone=559\""
    ],
    "reason": "The client's own WhatsApp booking link, copied from her current site (maridasgracas/index.html); it is never printed, only linked as the booking channel."
+  },
+  {
+   "check": "map-link",
+   "where": "div.span-6.split-col:nth-of-type(1) > div.split-col__end.stack-3 > p > a.link \"Ver no mapa\"",
+   "msg": "\"Ver no mapa\" searches for nothing: a map of a district or a town shows nobody the door (and 1 more link with the same search)",
+   "fix": "with a street from the brief, \"Get directions\" to its search; a district only: \"See the area\"; a town only: no map link",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "map-link"
+   ],
+   "wheres": [
+    "div.span-6.split-col:nth-of-type(1) > div.split-col__end.stack-3 > p > a.link \"Ver no mapa\""
+   ],
+   "reason": "The client asked for the Google Maps link of her old site: it opens her own pin (cid 7221528065705835822, 'Dra. Maria das Graças' in the Centro Empresarial Shopping da Ilha), the door itself, not a search, so the check reads an empty query."
   },
   {
    "check": "hero-lines",
@@ -322,6 +357,6 @@
    "reason": "All three dealt pairings (figtree, host, newsreader) wrap the 43-character stress h1 to 4 lines; the page's final h1, 'Dentista ortodontista em São Luís', takes 3 lines at 1440 and 2 at 1024, 820, 768 and 390 (check.mjs)."
   }
  ],
- "warnCount": 16,
- "at": "2026-11-16T20:52:29.779Z"
+ "warnCount": 17,
+ "at": "2026-11-16T23:28:44.203Z"
 }

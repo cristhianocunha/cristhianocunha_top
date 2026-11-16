@@ -1,0 +1,200 @@
+consistency  /home/cristhianocunha/code/cristhianocunha_top/maridasgracas/index.html
+
+1440x900  7 screens  3 FAIL  12 WARN
+  FAIL copy-fact       h1#hero-h  "Dentista ortodontista em São Luís"
+       the first screen holds no number, price, date, place, platform or genre  [1440-01-copy-fact.jpg]
+       fix: put one hard fact from the brief on the first screen: a number, a price, a date, the place, the platforms it runs on or a game's genre; take it from the brief or remove the claim
+  FAIL phone-number    header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "https://api.whatsapp.com/send/?phone=559"
+       a WhatsApp link calls a number in a real dialable format: "https://api.whatsapp.com/send/?phone=559"; a visitor can dial it and reach a stranger (and 5 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.grid.grid--top > div.span-5.stack-6 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, ...)  [1440-02-phone-number.jpg]
+       fix: drop the number and its tel: link (a "Request a call" form may stand in), unless the brief gives the number
+  FAIL map-link        div.span-6.split-col:nth-of-type(1) > div.split-col__end.stack-3 > p > a.link  "Ver no mapa"
+       "Ver no mapa" searches for nothing: a map of a district or a town shows nobody the door (and 1 more link with the same search)  [1440-07-map-link.jpg]
+       fix: with a street from the brief, "Get directions" to its search; a district only: "See the area"; a town only: no map link
+  WARN scroll-linked   div > figure.quote.stack-4 > p.mo-wh__text > span.mo-w:nth-of-type(3)  "seu"
+       its colour changes with the scroll and changes back when the scroll goes back (colour), with 1 part inside it, eased after the scroll stops; 13 more parts of this section change with the scroll too (span.mo-w:nth-of-type(4), span.mo-w:nth-of-type(5), span.mo-w:nth-of-type(6), span.mo-w:nth-of-type(7), ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [1440-08-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text  "“Parabéns pelo seu trabalho, em pensar q"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [1440-09-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN copy-buttons    header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Marcar consulta"
+       "Marcar consulta" does not start with a verb (book, buy, try, start, get, see...) (and 2 more like it: "Ver os tratamentos", "Marcar avaliação")  [1440-03-copy-buttons.jpg]
+       fix: label buttons with a verb and what the visitor gets ("Book a room", "Start free trial")
+  WARN section-gaps    section#tratamentos / section#invisalign
+       uneven space at the edge of a band: 72px outside its edge, 120px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [1440-06-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN hole            section#consultorio  "Consultório no Centro Empresarial Shoppi"
+       an empty hole 732x288px inside the section (32% of the screen's height), with content above and below it  [1440-10-hole.jpg]
+       fix: close the empty space: move the content together, or give the space the visual it lacks
+  WARN nav-labels      div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(2)  "Ortodontia infantil Avaliação e aparelho"
+       "Ortodontia infantil Avaliação e aparelho" opens a section headed "Tratamentos para crianças e adultos"
+       fix: name each nav link after the heading of the section it opens
+  WARN nav-labels      div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(3)  "Clareamento dental No consultório ou em "
+       "Clareamento dental No consultório ou em " opens a section headed "Tratamentos para crianças e adultos"
+       fix: name each nav link after the heading of the section it opens
+  WARN nav-labels      div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(1)  "Ortodontia para adultos Autoli"
+       4 entries of one menu go to the same place (#tratamentos): "Ortodontia para adultos Autoli", "Ortodontia infantil Avaliação ", "Clareamento dental No consultó", "Mini implante Ancoragem para o"
+       fix: give each menu entry its own target (its section, its tab, its page), or show fewer entries
+  WARN nav-current     header.nav.nav--split
+       the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)  [1440-05-nav-current.jpg]
+       fix: mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls
+  WARN button-contrast div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--secondary  "Ver os tratamentos"
+       the button "Ver os tratamentos" (#dddcda) stands only 1.16:1 off the ground around it: it reads as part of the ground, or as switched off  [1440-04-button-contrast.jpg]
+       fix: give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink
+  WARN skip-link       header.nav.nav--split > div.wrap.nav__bar > a.skip-link:nth-of-type(1)  "Pular para o conteúdo"
+       the first Tab stop is "Pular para o conteúdo", not a skip link: a keyboard user tabs through the whole nav on every visit
+       fix: add the starter's skip link as the header's first child: <a class="skip-link" href="#top">Skip to content</a>
+  WARN action-repeat   header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "marcar consulta"
+       "marcar consulta" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it  [1440-11-action-repeat.jpg]
+       fix: show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once
+
+1024x768  7 screens  0 FAIL  7 WARN
+  WARN flush           div.wrap > div.grid.grid--top > div.frame.frame--photo > img.frame__img  "img: A Dra. Maria das Graças de jaleco b"
+       its last line sits 22px above the lower edge of section#avaliacoes, where the ground changes to the footer  [1024-05-flush.jpg]
+       fix: give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)
+  WARN scroll-linked   div > figure.quote.stack-4 > p.mo-wh__text > span.mo-w:nth-of-type(2)  "pelo"
+       its colour changes with the scroll and changes back when the scroll goes back (colour), with 1 part inside it, eased after the scroll stops; 14 more parts of this section change with the scroll too (span.mo-w:nth-of-type(3), span.mo-w:nth-of-type(4), span.mo-w:nth-of-type(5), span.mo-w:nth-of-type(6), ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [1024-04-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text  "“Parabéns pelo seu trabalho, em pensar q"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [1024-06-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN section-gaps    section#tratamentos / section#invisalign
+       uneven space at the edge of a band: 72px outside its edge, 120px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [1024-03-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN nav-current     header.nav.nav--split
+       the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)  [1024-02-nav-current.jpg]
+       fix: mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls
+  WARN button-contrast div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--secondary  "Ver os tratamentos"
+       the button "Ver os tratamentos" (#dddcda) stands only 1.16:1 off the ground around it: it reads as part of the ground, or as switched off  [1024-01-button-contrast.jpg]
+       fix: give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink
+  WARN action-repeat   header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "marcar consulta"
+       "marcar consulta" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it  [1024-07-action-repeat.jpg]
+       fix: show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once
+
+820x1180  7 screens  0 FAIL  6 WARN
+  WARN nav             header.nav.nav--split > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (772px), while its first starts on the other edge  [820-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN scroll-linked   div > figure.quote.stack-4 > p.mo-wh__text > span.mo-w:nth-of-type(5)  "em"
+       its colour changes with the scroll and changes back when the scroll goes back (colour), with 1 part inside it, eased after the scroll stops; 7 more parts of this section change with the scroll too (span.mo-w:nth-of-type(6), span.mo-w:nth-of-type(7), span.mo-w:nth-of-type(9), span.mo-w:nth-of-type(10), ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [820-05-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text  "“Parabéns pelo seu trabalho, em pensar q"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [820-06-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN section-gaps    section#tratamentos / section#invisalign
+       uneven space at the edge of a band: 72px outside its edge, 122px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [820-03-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN proximity       section#consultorio > div.wrap > div.grid.grid--top > div.frame.frame--photo  "Consultório no Centro Empresarial Shoppi"
+       stacked at this width, the visual starts 21px under the text and buttons above it ("Consultório no Centro Empresar"): it reads glued to them  [820-04-proximity.jpg]
+       fix: give the stacked split the section's own gap between text and visual (40px or more on a phone)
+  WARN button-contrast div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--secondary  "Ver os tratamentos"
+       the button "Ver os tratamentos" (#dddcda) stands only 1.16:1 off the ground around it: it reads as part of the ground, or as switched off  [820-02-button-contrast.jpg]
+       fix: give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink
+
+768x1024  7 screens  0 FAIL  7 WARN
+  WARN nav             header.nav.nav--split > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (720px), while its first starts on the other edge  [768-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN scroll-linked   div > figure.quote.stack-4 > p.mo-wh__text > span.mo-w:nth-of-type(4)  "trabalho,"
+       its colour changes with the scroll and changes back when the scroll goes back (colour), with 1 part inside it, eased after the scroll stops; 8 more parts of this section change with the scroll too (span.mo-w:nth-of-type(5), span.mo-w:nth-of-type(6), span.mo-w:nth-of-type(7), span.mo-w:nth-of-type(9), ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [768-05-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text  "“Parabéns pelo seu trabalho, em pensar q"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [768-06-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN section-gaps    section#tratamentos / section#invisalign
+       uneven space at the edge of a band: 72px outside its edge, 121px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [768-03-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN proximity       section#consultorio > div.wrap > div.grid.grid--top > div.frame.frame--photo  "Consultório no Centro Empresarial Shoppi"
+       stacked at this width, the visual starts 21px under the text and buttons above it ("Consultório no Centro Empresar"): it reads glued to them  [768-04-proximity.jpg]
+       fix: give the stacked split the section's own gap between text and visual (40px or more on a phone)
+  WARN photo-set       div.wrap > div.grid.grid--top > div.frame.frame--photo > img.frame__img  "shopping-da-ilha.jpg"
+       4 photographs in more than one look: warm and cool photographs mixed (b* -6 to +8); the odd one out is shopping-da-ilha.jpg  [768-07-photo-set.jpg]
+       fix: grade the photographs to one look (light, colour, warmth), or replace the odd one out
+  WARN button-contrast div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--secondary  "Ver os tratamentos"
+       the button "Ver os tratamentos" (#dddcda) stands only 1.16:1 off the ground around it: it reads as part of the ground, or as switched off  [768-02-button-contrast.jpg]
+       fix: give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink
+
+390x844  12 screens  0 FAIL  9 WARN
+  WARN nav             header.nav.nav--split > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge  [390-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN scroll-linked   div > figure.quote.stack-4 > p.mo-wh__text > span.mo-w:nth-of-type(1)  "“Parabéns"
+       its colour changes with the scroll and changes back when the scroll goes back (colour), with 1 part inside it, eased after the scroll stops; 8 more parts of this section change with the scroll too (span.mo-w:nth-of-type(2), span.mo-w:nth-of-type(4), span.mo-w:nth-of-type(6), span.mo-w:nth-of-type(9), ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [390-06-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text  "“Parabéns pelo seu trabalho, em pensar q"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [390-07-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN cta             section#tratamentos  "Tratamentos para crianças e adultos"
+       a section over 1.5 screens long with no link or button in it  [390-04-cta.jpg]
+       fix: add the action: a button in the hero, one on every priced item, one in the closing section
+  WARN cta             section#avaliacoes  "Avaliações de pacientes “Parabéns pelo s"
+       a section over 1.5 screens long with no link or button in it  [390-08-cta.jpg]
+       fix: add the action: a button in the hero, one on every priced item, one in the closing section
+  WARN section-gaps    main#top > section.hero.hero--split / section#tratamentos
+       121px between these sections, -42% against the median 209px  [390-03-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN button-contrast div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--secondary  "Ver os tratamentos"
+       the button "Ver os tratamentos" (#dddcda) stands only 1.16:1 off the ground around it: it reads as part of the ground, or as switched off  [390-02-button-contrast.jpg]
+       fix: give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink
+  WARN empty-area      section#consultorio  "Consultório no Centro Empresarial Shoppi"
+       35% of the section is empty: 528px under its last (div.frame.frame--photo), in its 1491px of rows (WARN over 35%, FAIL over 50%)  [390-05-empty-area.jpg]
+       fix: fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)
+  WARN empty-visual    img (dra-janela.jpg)  "dra-janela.jpg"
+       on a phone over a slow mobile line (1.6 Mbit/s) the frame of dra-janela.jpg is still empty 1 s after a tap on "Avaliações" in the menu brings it on screen: the file is 168 KB, 700px wide for a 342px frame  [390-slow-01-empty-visual.jpg]
+       fix: serve the photograph at the size it is drawn (srcset and sizes: an 800px file for the phone), load it before it is reached (no loading=lazy on the next screen), or give the frame a blurred still of it
+
+first screen at 1280, 1152, 896  0 FAIL  0 WARN
+
+the page at 320x640, walked for what runs past the screen's edge  0 FAIL
+
+checks
+  PASS assets                 PASS shader-lint            PASS gl-fallback            
+  WARN empty-visual           PASS hero-fill              WARN flush                  
+  PASS placeholder            PASS sample-label           PASS caption                
+  PASS credit-wall            WARN nav                    PASS nav-covers             
+  PASS spill                  PASS off-viewport           PASS fold-card              
+  PASS hover-spill            PASS overlap-text           PASS collide                
+  PASS tap-size               PASS row-gap                PASS cut-text               
+  PASS fold-cut               PASS marquee                WARN scroll-linked          
+  WARN scroll-reveal          PASS pinned                 PASS loop-pause             
+  PASS reduced-motion         PASS hidden-content         PASS webgl                  
+  PASS no-visual              PASS text-only              PASS card-visual            
+  PASS hidden-visual          PASS card-family            PASS card-layout            
+  PASS nesting                PASS effect-repeat          PASS ui-fit                 
+  PASS ui-centre              PASS dark-ground            PASS button-styles          
+  PASS button-shape           PASS same-action            PASS button-picture         
+  WARN cta                    PASS pricing-tiers          PASS copy-headline          
+  FAIL copy-fact              PASS copy-headings          WARN copy-buttons           
+  PASS copy-actions           PASS heading-scale          PASS stagger                
+  PASS top-stagger            PASS off-grid               PASS col-edge               
+  PASS right-edge             PASS centre-axis            PASS tilt                   
+  PASS contrast               PASS text-contrast          PASS body-size              
+  PASS busy-ground            WARN section-gaps           WARN proximity              
+  WARN hole                   PASS links                  PASS forms                  
+  PASS photo-upscale          WARN photo-set              PASS photo-credit           
+  PASS nav-family             WARN nav-labels             PASS link-styles            
+  PASS heading-align          PASS label-centre           PASS fake-button            
+  PASS stranded-action        PASS orphan                 PASS unit-break             
+  PASS tab-wrap               PASS effects-fit            PASS fade-cut               
+  PASS photo-weight           PASS copy-length            WARN nav-current            
+  PASS progress-bar           PASS photo-repeat           WARN button-contrast        
+  PASS photo-print            PASS grounds                PASS split-align            
+  PASS fact-agree             PASS fold-action            PASS action-count           
+  PASS one-screen             PASS hover                  PASS hover-move             
+  PASS product-shown          PASS same-object            PASS font-load              
+  PASS visual-caption         PASS visual-empty           PASS effect-kind            
+  PASS hero-enter             PASS moment-none            PASS street-number          
+  PASS postcode               PASS coordinates            PASS company-number         
+  FAIL phone-number           PASS hero-screen            PASS section-height         
+  PASS section-air            PASS one-section            PASS one-heading            
+  PASS container-edges        PASS row-lines              PASS split-pair             
+  PASS motion-layer           PASS count-text             PASS loop-cycle             
+  PASS section-tile           WARN empty-area             PASS a11y-name              
+  PASS img-alt                PASS field-label            PASS heading-order          
+  PASS tabindex               PASS focus-ring             PASS focus-visible          
+  PASS focus-hidden           WARN skip-link              PASS menu-toggle            
+  PASS lang                   PASS page-meta              PASS share-meta             
+  WARN action-repeat          FAIL map-link               PASS open-now               
+  PASS assumed                PASS run-on                 PASS form-fields            
+  PASS form-send              
+
+total  3 FAIL  41 WARN  (crops and report.json in /home/cristhianocunha/code/cristhianocunha_top/maridasgracas/.taste-skill/consistency)

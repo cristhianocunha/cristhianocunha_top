@@ -1,24 +1,29 @@
 {
-  "palettes": [
-    "three-stones",
-    "three-stones",
-    "three-stones"
-  ],
-  "types": [
-    "figtree",
-    "host",
-    "newsreader"
-  ],
-  "dealt": [
-    "figtree",
-    "host",
-    "newsreader"
-  ],
-  "moments": [
-    {
-      "id": "word-highlight",
-      "at": "2026-11-16T19:33:28.839Z",
-      "seed": "3bf62ea5"
-    }
-  ]
+ "palettes": [
+  "three-stones",
+  "three-stones",
+  "three-stones"
+ ],
+ "types": [
+  "figtree",
+  "host",
+  "newsreader"
+ ],
+ "dealt": [
+  "figtree",
+  "host",
+  "newsreader"
+ ],
+ "moments": [
+  {
+   "id": "word-highlight",
+   "at": "2026-11-16T19:33:28.839Z",
+   "seed": "3bf62ea5"
+  },
+  {
+   "id": "picture-develops",
+   "at": "2026-11-16T23:26:00.707Z",
+   "seed": "0725f1c0"
+  }
+ ]
 }
