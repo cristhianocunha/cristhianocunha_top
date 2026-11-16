@@ -1,0 +1,364 @@
+{
+ "start": "2026-11-16T17:44:53.905Z",
+ "round": 2,
+ "idle": 0,
+ "errors": 0,
+ "status": "pass",
+ "history": [
+  {
+   "at": "2026-11-16T18:15:15.792Z",
+   "mode": "hook",
+   "host": "claude",
+   "status": "fail",
+   "fails": 2,
+   "round": 0,
+   "reused": false,
+   "stopHookActive": false,
+   "decision": "block",
+   "reason": "2 FAILs remain (not checked: check.mjs could not run (exit 2: no Chrome found (set CHROME_PATH))) (not a round: the gate has not been run by hand in this build "
+  },
+  {
+   "at": "2026-11-16T18:17:07.924Z",
+   "mode": "hook",
+   "host": "claude",
+   "status": "fail",
+   "fails": 2,
+   "round": 0,
+   "reused": false,
+   "stopHookActive": true,
+   "decision": "allow",
+   "reason": "nothing changed since the last block; this stop is allowed once without a round (a question to the user)"
+  },
+  {
+   "at": "2026-11-16T19:04:05.112Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 3,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-16T19:13:50.407Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 2,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-16T19:21:46.420Z",
+   "mode": "manual",
+   "status": "pass",
+   "fails": 0,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-16T19:26:28.746Z",
+   "mode": "hook",
+   "host": "claude",
+   "decision": "allow",
+   "reason": "no build is active here",
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": "index.html",
+  "url": null,
+  "root": null,
+  "kind": "service",
+  "category": "desenvolvimento web PHP Laravel e DevOps",
+  "primary": "Chamar no WhatsApp",
+  "rounds": 3,
+  "start": "2026-11-16T17:44:53.905Z",
+  "by": "gate.mjs --start"
+ },
+ "roundKey": "fb8df00427e7be58:5954b016",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "b56e086d2501b0ae",
+ "page": "index.html",
+ "found": {
+  "fails": [
+   {
+    "check": "card-layout",
+    "where": "section#trabalhos > div.wrap > div.grid \"Maya Odontologia Clínica: espaço, equipe\"",
+    "msg": "4 of 4 cards drawn one way (one panel, ground, placement and fragment): copies of one card",
+    "fix": "a card layout at most twice on a page: build the other sections another way",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "card-layout"
+    ],
+    "wheres": [
+     "section#trabalhos > div.wrap > div.grid \"Maya Odontologia Clínica: espaço, equipe\""
+    ]
+   },
+   {
+    "check": "copy-headings",
+    "where": "div.grid > a.tile.span-3:nth-of-type(2) > div.tile__head > h3 \"Dra. Maria das Graças\"",
+    "msg": "\"Dra. Maria das Graças\" names no product, part, place or section (3 headings like it; at most one brand line per page) (and 2 more like it: \"Vet in Home\", \"Maria e Cristhiano Studi\")",
+    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "copy-headings"
+    ],
+    "wheres": [
+     "div.grid > a.tile.span-3:nth-of-type(2) > div.tile__head > h3 \"Dra. Maria das Graças\""
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "scroll-reveal",
+    "where": "section#devops > div.wrap > p.mo-wh__text \"Fui selecionado entre 30 participantes d\"",
+    "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-buttons",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"Chamar no WhatsApp\"",
+    "msg": "\"Chamar no WhatsApp\" does not start with a verb (book, buy, try, start, get, see...) (and 1 more like it: \"Ver o currículo\")",
+    "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "main#top > section.hero.hero--split / section#servicos",
+    "msg": "178px between these sections, -59% against the median 437px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#trabalhos / section#experiencia",
+    "msg": "uneven space at the edge of a band: 114px outside its edge, 327px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#experiencia / footer#contact",
+    "msg": "uneven space at the edge of a band: 323px outside its edge, 114px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "photo-set",
+    "where": "div.grid > a.tile.span-3:nth-of-type(4) > div.tile__media > img \"mariaecristhianostudio-960.jpg\"",
+    "msg": "5 photographs in more than one look: saturation from 0.10 to 0.74; warm and cool photographs mixed (b* -25 to +10); the odd one out is mariaecristhianostudio-960.jpg",
+    "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > a.nav__logo \"Cristhiano Cunha\"",
+    "msg": "\"Cristhiano Cunha\" opens a section headed \"Desenvolvedor PHP e DevOps em São Luís\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-current",
+    "where": "header.nav.nav--centre",
+    "msg": "the nav stays on screen with 3 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
+    "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "button-contrast",
+    "where": "div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--secondary \"Ver o currículo\"",
+    "msg": "the button \"Ver o currículo\" (#e9e9e9) stands only 1.21:1 off the ground around it: it reads as part of the ground, or as switched off",
+    "fix": "give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "skip-link",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > a.skip-link:nth-of-type(1) \"Pular para o conteúdo\"",
+    "msg": "the first Tab stop is \"Pular para o conteúdo\", not a skip link: a keyboard user tabs through the whole nav on every visit",
+    "fix": "add the starter's skip link as the header's first child: <a class=\"skip-link\" href=\"#top\">Skip to content</a>",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "action-repeat",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"chamar no whatsapp\"",
+    "msg": "\"chamar no whatsapp\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+    "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-air",
+    "where": "section#trabalhos \"4 sites de clientes no ar Servidos por e\"",
+    "msg": "the content fills 51.3% of the section's height (462 of 900px): 55% or more (40% WARN) (SR-3)",
+    "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-air",
+    "where": "section#experiencia \"Experiência desde 2021 Bacharel em Ciênc\"",
+    "msg": "the content fills 51.4% of the section's height (463 of 900px): 55% or more (40% WARN) (SR-3)",
+    "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "no-visual",
+    "where": "section#experiencia \"Experiência desde 2021\"",
+    "msg": "pictures, effects and mocks cover 25% of this section; a feature section needs a visual (about 25% or more)",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cta",
+    "where": "section#servicos \"Serviços em PHP, APIs e nuvem\"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "proximity",
+    "where": "section#trabalhos > div.wrap > div.grid \"Maya Odontologia Clínica: espaço, equipe\"",
+    "msg": "the rows sit 12px apart, about as close as a picture to its own caption (16px): a caption reads with the row below",
+    "fix": "set the gap between rows at twice the gap between a picture and its caption or more",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "photo-set",
+    "where": "div.wrap > div.hero-text.grid > div.hero__media.span-6 > img \"mayaodonto-tablet.jpg\"",
+    "msg": "5 photographs in more than one look: saturation from 0.32 to 0.72; warm and cool photographs mixed (b* -25 to +9); the odd one out is mayaodonto-tablet.jpg",
+    "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "empty-area",
+    "where": "footer#contact \"Conversa sobre o seu projeto no WhatsApp\"",
+    "msg": "39% of the section is empty: 592px of empty rows between its content, in its 1494px of rows (WARN over 35%, FAIL over 50%)",
+    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-cast",
+    "msg": "default-cast names: Maya",
+    "fix": "person names come only from the brief; a mock's names fit its locale and are not the names every model picks (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy x1: \"Maya\"",
+    "exact": false
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 95,
+   "layout": 4
+  }
+ },
+ "open": [],
+ "waived": [
+  {
+   "check": "card-layout",
+   "where": "section#trabalhos > div.wrap > div.grid \"Maya Odontologia Clínica: espaço, equipe\"",
+   "msg": "4 of 4 cards drawn one way (one panel, ground, placement and fragment): copies of one card",
+   "fix": "a card layout at most twice on a page: build the other sections another way",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "card-layout"
+   ],
+   "wheres": [
+    "section#trabalhos > div.wrap > div.grid \"Maya Odontologia Clínica: espaço, equipe\""
+   ],
+   "reason": "This is the service plan's work section: a grid of 3 to 6 project photographs (sections.md, Service). Each tile is a different client's real site screenshot; the check is aimed at UI-fragment feature cards."
+  },
+  {
+   "check": "copy-headings",
+   "where": "div.grid > a.tile.span-3:nth-of-type(2) > div.tile__head > h3 \"Dra. Maria das Graças\"",
+   "msg": "\"Dra. Maria das Graças\" names no product, part, place or section (3 headings like it; at most one brand line per page) (and 2 more like it: \"Vet in Home\", \"Maria e Cristhiano Studi\")",
+   "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "copy-headings"
+   ],
+   "wheres": [
+    "div.grid > a.tile.span-3:nth-of-type(2) > div.tile__head > h3 \"Dra. Maria das Graças\""
+   ],
+   "reason": "Tile title is the real client's name (a proper noun of a site in this repo); the noun list is English and cannot match a Portuguese client name."
+  }
+ ],
+ "warnCount": 19,
+ "at": "2026-11-16T19:21:46.420Z",
+ "session": "e44d82ed-49d1-46ad-b4c8-fcc3ceb9d95c",
+ "manual": true
+}

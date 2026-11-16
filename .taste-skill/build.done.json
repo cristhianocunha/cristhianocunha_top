@@ -1,0 +1,11 @@
+{
+ "page": "index.html",
+ "url": null,
+ "root": null,
+ "kind": "service",
+ "category": "desenvolvimento web PHP Laravel e DevOps",
+ "primary": "Chamar no WhatsApp",
+ "rounds": 3,
+ "start": "2026-11-16T17:44:53.905Z",
+ "by": "gate.mjs --start"
+}

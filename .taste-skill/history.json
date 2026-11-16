@@ -1,0 +1,22 @@
+{
+  "palettes": [
+    "white-link-blue",
+    "white-link-blue"
+  ],
+  "types": [
+    "red-hat",
+    "instrument-serif"
+  ],
+  "dealt": [
+    "red-hat",
+    "instrument-serif",
+    "zilla"
+  ],
+  "moments": [
+    {
+      "id": "word-highlight",
+      "at": "2026-11-16T17:45:05.721Z",
+      "seed": "0383073f"
+    }
+  ]
+}

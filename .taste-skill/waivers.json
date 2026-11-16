@@ -1,0 +1,12 @@
+[
+ {
+  "check": "copy-headings",
+  "target": "Dra. Maria das Graças",
+  "reason": "Tile title is the real client's name (a proper noun of a site in this repo); the noun list is English and cannot match a Portuguese client name."
+ },
+ {
+  "check": "card-layout",
+  "target": "section#trabalhos > div.wrap > div.grid",
+  "reason": "This is the service plan's work section: a grid of 3 to 6 project photographs (sections.md, Service). Each tile is a different client's real site screenshot; the check is aimed at UI-fragment feature cards."
+ }
+]

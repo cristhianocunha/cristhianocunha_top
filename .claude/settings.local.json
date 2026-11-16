@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /home/cristhiano/code/cristhianocunha_top remote:*)",
+      "Bash(wc:*)",
+      "Bash(du:*)",
+      "Bash(git -C /home/cristhiano/code/cristhianocunha_top show:*)",
+      "Bash(npm install:*)",
+      "Bash(npx astro build:*)",
+      "Bash(docker compose exec:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(gh repo *)",
+      "WebSearch",
+      "WebFetch(domain:bacen.github.io)",
+      "Bash(git -C /home/cristhiano/code/cristhianocunha_top log --oneline -10)"
+    ]
+  }
+}
