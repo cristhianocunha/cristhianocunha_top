@@ -1,0 +1,4 @@
+
+# perfis do Chrome / caches gerados por ferramentas
+**/.taste-skill/chrome-*/
+.claude/settings.local.json
