@@ -18,5 +18,10 @@
   "check": "map-link",
   "target": "div.split-col__end.stack-3 > p > a.link",
   "reason": "The client asked for the Google Maps link of her old site: it opens her own pin (cid 7221528065705835822, 'Dra. Maria das Graças' in the Centro Empresarial Shopping da Ilha), the door itself, not a search, so the check reads an empty query."
+ },
+ {
+  "check": "no-visual",
+  "target": "section#tratamentos",
+  "reason": "The client asked to drop the photograph under the list on a phone: there each row opens its own modal with that treatment's photograph, so the picture under the list showed one twice."
  }
 ]

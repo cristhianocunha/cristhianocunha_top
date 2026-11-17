@@ -1,12 +1,12 @@
 {
- "start": "2026-11-16T23:27:01.696Z",
+ "start": "2026-11-17T12:56:03.904Z",
  "round": 0,
  "idle": 0,
  "errors": 0,
  "status": "pass",
  "history": [
   {
-   "at": "2026-11-16T23:28:44.202Z",
+   "at": "2026-11-17T12:57:42.954Z",
    "mode": "manual",
    "status": "pass",
    "fails": 0,
@@ -15,7 +15,7 @@
    "stopHookActive": false
   },
   {
-   "at": "2026-11-16T23:29:52.063Z",
+   "at": "2026-11-17T12:57:52.885Z",
    "mode": "hook",
    "host": "claude",
    "decision": "allow",
@@ -32,11 +32,11 @@
   "category": "dentista ortodontista",
   "primary": "Marcar consulta",
   "rounds": 3,
-  "start": "2026-11-16T23:27:01.696Z",
+  "start": "2026-11-17T12:56:03.904Z",
   "by": "gate.mjs --start"
  },
  "manual": true,
- "fp": "fcf78631f47830ad",
+ "fp": "bd665a74d6d7103f",
  "page": "index.html",
  "found": {
   "fails": [
@@ -59,7 +59,7 @@
    {
     "check": "phone-number",
     "where": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"https://api.whatsapp.com/send/?phone=559\"",
-    "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 5 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.grid.grid--top > div.span-5.stack-6 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, ...)",
+    "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 10 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.grid.grid--top > div.span-5.stack-6 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, ...)",
     "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
     "widths": [
      1440
@@ -86,6 +86,22 @@
     ],
     "wheres": [
      "div.span-6.split-col:nth-of-type(1) > div.split-col__end.stack-3 > p > a.link \"Ver no mapa\""
+    ]
+   },
+   {
+    "check": "no-visual",
+    "where": "section#tratamentos \"Tratamentos para crianças e adultos\"",
+    "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "no-visual"
+    ],
+    "wheres": [
+     "section#tratamentos \"Tratamentos para crianças e adultos\""
     ]
    },
    {
@@ -120,7 +136,7 @@
    {
     "check": "scroll-reveal",
     "where": "div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text \"“Parabéns pelo seu trabalho, em pensar q\"",
-    "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(4) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
     "widths": [
      1440,
@@ -140,7 +156,28 @@
    },
    {
     "check": "section-gaps",
-    "where": "section#tratamentos / section#invisalign",
+    "where": "main#top > section.hero.hero--split / section#invisalign",
+    "msg": "uneven space at the edge of a band: 64px outside its edge, 120px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#invisalign / section#tratamentos",
+    "msg": "uneven space at the edge of a band: 122px outside its edge, 72px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#tratamentos / section#consultorio",
     "msg": "uneven space at the edge of a band: 72px outside its edge, 120px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
@@ -160,7 +197,7 @@
    },
    {
     "check": "nav-labels",
-    "where": "div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(2) \"Ortodontia infantil Avaliação e aparelho\"",
+    "where": "div.nav__item:nth-of-type(2) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(2) \"Ortodontia infantil Avaliação e aparelho\"",
     "msg": "\"Ortodontia infantil Avaliação e aparelho\" opens a section headed \"Tratamentos para crianças e adultos\"",
     "fix": "name each nav link after the heading of the section it opens",
     "widths": [
@@ -170,7 +207,7 @@
    },
    {
     "check": "nav-labels",
-    "where": "div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(3) \"Clareamento dental No consultório ou em \"",
+    "where": "div.nav__item:nth-of-type(2) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(3) \"Clareamento dental No consultório ou em \"",
     "msg": "\"Clareamento dental No consultório ou em \" opens a section headed \"Tratamentos para crianças e adultos\"",
     "fix": "name each nav link after the heading of the section it opens",
     "widths": [
@@ -180,7 +217,7 @@
    },
    {
     "check": "nav-labels",
-    "where": "div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(1) \"Ortodontia para adultos Autoli\"",
+    "where": "div.nav__item:nth-of-type(2) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(1) \"Ortodontia para adultos Autoli\"",
     "msg": "4 entries of one menu go to the same place (#tratamentos): \"Ortodontia para adultos Autoli\", \"Ortodontia infantil Avaliação \", \"Clareamento dental No consultó\", \"Mini implante Ancoragem para o\"",
     "fix": "give each menu entry its own target (its section, its tab, its page), or show fewer entries",
     "widths": [
@@ -240,12 +277,13 @@
     "from": "consistency"
    },
    {
-    "check": "cta",
-    "where": "section#tratamentos \"Tratamentos para crianças e adultos\"",
-    "msg": "a section over 1.5 screens long with no link or button in it",
-    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "check": "tap-size",
+    "where": "div.grid.grid--top > ul.rows.span-6 > li:nth-of-type(1) > button.rows__more",
+    "msg": "a 36x36px tap target (and 3 more like it on this screen): under the 44px a phone needs",
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box",
     "widths": [
-     390
+     390,
+     320
     ],
     "from": "consistency"
    },
@@ -260,29 +298,29 @@
     "from": "consistency"
    },
    {
-    "check": "section-gaps",
-    "where": "main#top > section.hero.hero--split / section#tratamentos",
-    "msg": "121px between these sections, -42% against the median 209px",
-    "fix": "use one gap between sections (all within 25% of each other)",
+    "check": "photo-set",
+    "where": "div.wrap > div.grid.grid--top > div.invisalign__media.span-6 > img \"invisalign-estojo-640.webp\"",
+    "msg": "4 photographs in more than one look: warm and cool photographs mixed (b* -10 to +5); the odd one out is invisalign-estojo-640.webp",
+    "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
     "widths": [
      390
     ],
     "from": "consistency"
    },
    {
-    "check": "empty-area",
-    "where": "section#consultorio \"Consultório no Centro Empresarial Shoppi\"",
-    "msg": "35% of the section is empty: 528px under its last (div.frame.frame--photo), in its 1491px of rows (WARN over 35%, FAIL over 50%)",
-    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
+    "check": "collide",
+    "where": "div.grid.grid--top > ul.rows.span-6 > li:nth-of-type(5) > span.rows__name \"Extração de dentes\"",
+    "msg": "the words \"Extração de dentes\" run out of their section into the next one (section#consultorio): the section is shorter than what it holds",
+    "fix": "on a phone nothing lies on anything else: let the section grow with its content (min-height for its screens, never a fixed height; --hm: 2 when it needs two) or cut what it holds; keep pictures and cards off the buttons; pad the page under a fixed bar by the bar's height (top: the first section; end: the footer)",
     "widths": [
-     390
+     320
     ],
     "from": "consistency"
    }
   ],
   "crashed": [],
   "seconds": {
-   "consistency": 98,
+   "consistency": 94,
    "layout": 4
   }
  },
@@ -308,7 +346,7 @@
   {
    "check": "phone-number",
    "where": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"https://api.whatsapp.com/send/?phone=559\"",
-   "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 5 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.grid.grid--top > div.span-5.stack-6 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, ...)",
+   "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 10 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.grid.grid--top > div.span-5.stack-6 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, ...)",
    "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number",
    "widths": [
     1440
@@ -340,6 +378,23 @@
    "reason": "The client asked for the Google Maps link of her old site: it opens her own pin (cid 7221528065705835822, 'Dra. Maria das Graças' in the Centro Empresarial Shopping da Ilha), the door itself, not a search, so the check reads an empty query."
   },
   {
+   "check": "no-visual",
+   "where": "section#tratamentos \"Tratamentos para crianças e adultos\"",
+   "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+   "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "no-visual"
+   ],
+   "wheres": [
+    "section#tratamentos \"Tratamentos para crianças e adultos\""
+   ],
+   "reason": "The client asked to drop the photograph under the list on a phone: there each row opens its own modal with that treatment's photograph, so the picture under the list showed one twice."
+  },
+  {
    "check": "hero-lines",
    "where": "section.hero h1",
    "msg": "the check fills the h1 to 43 characters (this hero's maxChars in heroes.json), not the page's own: it takes 4 lines at 1440, 3 at most",
@@ -357,6 +412,6 @@
    "reason": "All three dealt pairings (figtree, host, newsreader) wrap the 43-character stress h1 to 4 lines; the page's final h1, 'Dentista ortodontista em São Luís', takes 3 lines at 1440 and 2 at 1024, 820, 768 and 390 (check.mjs)."
   }
  ],
- "warnCount": 17,
- "at": "2026-11-16T23:28:44.203Z"
+ "warnCount": 19,
+ "at": "2026-11-17T12:57:42.955Z"
 }

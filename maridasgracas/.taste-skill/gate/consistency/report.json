@@ -1,7 +1,7 @@
 {
  "page": "/home/cristhianocunha/code/cristhianocunha_top/maridasgracas/index.html",
  "url": "http://127.0.0.1:5200/index.html",
- "at": "2026-11-16T23:27:02.170Z",
+ "at": "2026-11-17T12:56:04.472Z",
  "out": "/home/cristhianocunha/code/cristhianocunha_top/maridasgracas/.taste-skill/gate/consistency",
  "widths": [
   {
@@ -27,7 +27,7 @@
      "sel": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
      "text": "https://api.whatsapp.com/send/?phone=559",
      "stop": 0,
-     "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 5 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.grid.grid--top > div.span-5.stack-6 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, ...)",
+     "msg": "a WhatsApp link calls a number in a real dialable format: \"https://api.whatsapp.com/send/?phone=559\"; a visitor can dial it and reach a stranger (and 10 more like it: div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary, div.grid.grid--top > div.span-5.stack-6 > div.btn-row > a.btn.btn--primary, div.wrap > div.closing__cta.close--photo > div.section-head--split > a.btn.btn--primary, ...)",
      "crop": "1440-02-phone-number.jpg",
      "fix": "drop the number and its tel: link (a \"Request a call\" form may stand in), unless the brief gives the number"
     },
@@ -38,7 +38,7 @@
      "text": "Ver no mapa",
      "msg": "\"Ver no mapa\" searches for nothing: a map of a district or a town shows nobody the door (and 1 more link with the same search)",
      "stop": 4,
-     "crop": "1440-07-map-link.jpg",
+     "crop": "1440-09-map-link.jpg",
      "fix": "with a street from the brief, \"Get directions\" to its search; a district only: \"See the area\"; a town only: no map link"
     },
     {
@@ -48,7 +48,7 @@
      "text": "",
      "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 4,
-     "crop": "1440-08-scroll-reveal.jpg",
+     "crop": "1440-10-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -56,9 +56,9 @@
      "sev": "WARN",
      "sel": "div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text",
      "text": "“Parabéns pelo seu trabalho, em pensar que na mi",
-     "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(4) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 4,
-     "crop": "1440-09-scroll-reveal.jpg",
+     "crop": "1440-11-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -74,11 +74,31 @@
     {
      "check": "section-gaps",
      "sev": "WARN",
-     "sel": "section#tratamentos / section#invisalign",
+     "sel": "main#top > section.hero.hero--split / section#invisalign",
+     "text": "",
+     "stop": 1,
+     "msg": "uneven space at the edge of a band: 64px outside its edge, 120px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "1440-05-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#invisalign / section#tratamentos",
      "text": "",
      "stop": 2,
+     "msg": "uneven space at the edge of a band: 122px outside its edge, 72px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "1440-07-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#tratamentos / section#consultorio",
+     "text": "",
+     "stop": 3,
      "msg": "uneven space at the edge of a band: 72px outside its edge, 120px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "1440-06-section-gaps.jpg",
+     "crop": "1440-08-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -88,13 +108,13 @@
      "text": "Consultório no Centro Empresarial Shopping da Il",
      "msg": "an empty hole 732x288px inside the section (32% of the screen's height), with content above and below it",
      "stop": 4,
-     "crop": "1440-10-hole.jpg",
+     "crop": "1440-12-hole.jpg",
      "fix": "close the empty space: move the content together, or give the space the visual it lacks"
     },
     {
      "check": "nav-labels",
      "sev": "WARN",
-     "sel": "div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(2)",
+     "sel": "div.nav__item:nth-of-type(2) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(2)",
      "text": "Ortodontia infantil Avaliação e aparelho",
      "msg": "\"Ortodontia infantil Avaliação e aparelho\" opens a section headed \"Tratamentos para crianças e adultos\"",
      "stop": null,
@@ -103,7 +123,7 @@
     {
      "check": "nav-labels",
      "sev": "WARN",
-     "sel": "div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(3)",
+     "sel": "div.nav__item:nth-of-type(2) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(3)",
      "text": "Clareamento dental No consultório ou em ",
      "msg": "\"Clareamento dental No consultório ou em \" opens a section headed \"Tratamentos para crianças e adultos\"",
      "stop": null,
@@ -112,7 +132,7 @@
     {
      "check": "nav-labels",
      "sev": "WARN",
-     "sel": "div.nav__item:nth-of-type(1) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(1)",
+     "sel": "div.nav__item:nth-of-type(2) > div.nav__menu > div.wrap.grid > a.menu-card.span-3:nth-of-type(1)",
      "text": "Ortodontia para adultos Autoli",
      "msg": "4 entries of one menu go to the same place (#tratamentos): \"Ortodontia para adultos Autoli\", \"Ortodontia infantil Avaliação \", \"Clareamento dental No consultó\", \"Mini implante Ancoragem para o\"",
      "fix": "give each menu entry its own target (its section, its tab, its page), or show fewer entries",
@@ -125,7 +145,7 @@
      "text": "",
      "stop": 1,
      "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
-     "crop": "1440-05-nav-current.jpg",
+     "crop": "1440-06-nav-current.jpg",
      "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls"
     },
     {
@@ -154,7 +174,7 @@
      "text": "marcar consulta",
      "stop": 7,
      "msg": "\"marcar consulta\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1440-11-action-repeat.jpg",
+     "crop": "1440-13-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     }
    ],
@@ -163,10 +183,20 @@
   {
    "width": 390,
    "height": 844,
-   "screens": 12,
+   "screens": 10,
    "held": 0,
    "errors": [],
    "findings": [
+    {
+     "check": "no-visual",
+     "sev": "FAIL",
+     "sel": "section#tratamentos",
+     "text": "Tratamentos para crianças e adultos",
+     "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+     "stop": 2,
+     "crop": "390-06-no-visual.jpg",
+     "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits"
+    },
     {
      "check": "nav",
      "sev": "WARN",
@@ -178,13 +208,23 @@
      "crop": "390-01-nav.jpg"
     },
     {
+     "check": "tap-size",
+     "sev": "WARN",
+     "sel": "div.grid.grid--top > ul.rows.span-6 > li:nth-of-type(1) > button.rows__more",
+     "text": "",
+     "msg": "a 36x36px tap target (and 3 more like it on this screen): under the 44px a phone needs",
+     "stop": 2,
+     "crop": "390-07-tap-size.jpg",
+     "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box"
+    },
+    {
      "check": "scroll-reveal",
      "sev": "WARN",
      "sel": "section#consultorio > div.wrap > div.grid.grid--top > div.frame.frame--photo",
      "text": "",
      "msg": "starts \"transform\" (0.4 s) the moment it is scrolled into view (an IntersectionObserver) on img.frame__img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
-     "stop": 5,
-     "crop": "390-05-scroll-reveal.jpg",
+     "stop": 4,
+     "crop": "390-08-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -192,20 +232,10 @@
      "sev": "WARN",
      "sel": "div.stack-6 > div > figure.quote.stack-4 > p.mo-wh__text",
      "text": "“Parabéns pelo seu trabalho, em pensar que na mi",
-     "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
-     "stop": 7,
-     "crop": "390-07-scroll-reveal.jpg",
+     "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(4) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+     "stop": 4,
+     "crop": "390-09-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
-    },
-    {
-     "check": "cta",
-     "sev": "WARN",
-     "sel": "section#tratamentos",
-     "text": "Tratamentos para crianças e adultos",
-     "msg": "a section over 1.5 screens long with no link or button in it",
-     "stop": 2,
-     "crop": "390-04-cta.jpg",
-     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
     {
      "check": "cta",
@@ -213,19 +243,39 @@
      "sel": "section#avaliacoes",
      "text": "Avaliações de pacientes “Parabéns pelo seu traba",
      "msg": "a section over 1.5 screens long with no link or button in it",
-     "stop": 8,
-     "crop": "390-08-cta.jpg",
+     "stop": 5,
+     "crop": "390-10-cta.jpg",
      "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
     {
      "check": "section-gaps",
      "sev": "WARN",
-     "sel": "main#top > section.hero.hero--split / section#tratamentos",
+     "sel": "main#top > section.hero.hero--split / section#invisalign",
      "text": "",
      "stop": 1,
-     "msg": "121px between these sections, -42% against the median 209px",
+     "msg": "121px between these sections, -46% against the median 226px of gaps at a change of ground",
      "crop": "390-03-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "main#top > section.hero.hero--split / section#invisalign",
+     "text": "",
+     "stop": 1,
+     "msg": "uneven space at the edge of a band: 24px outside its edge, 97px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "390-04-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "div.wrap > div.grid.grid--top > div.invisalign__media.span-6 > img",
+     "text": "invisalign-estojo-640.webp",
+     "stop": 1,
+     "msg": "4 photographs in more than one look: warm and cool photographs mixed (b* -10 to +5); the odd one out is invisalign-estojo-640.webp",
+     "crop": "390-05-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
      "check": "button-contrast",
@@ -236,16 +286,6 @@
      "msg": "the button \"Ver os tratamentos\" (#dddcda) stands only 1.16:1 off the ground around it: it reads as part of the ground, or as switched off",
      "crop": "390-02-button-contrast.jpg",
      "fix": "give the button a fill that stands at least 1.5:1 off what is around it, or an outline in the ink"
-    },
-    {
-     "check": "empty-area",
-     "sev": "WARN",
-     "sel": "section#consultorio",
-     "text": "Consultório no Centro Empresarial Shoppi",
-     "msg": "35% of the section is empty: 528px under its last (div.frame.frame--photo), in its 1491px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 6,
-     "crop": "390-06-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
     }
    ],
    "glAsked": 0
@@ -282,11 +322,32 @@
   "width": 320,
   "height": 640,
   "errors": [],
-  "findings": []
+  "findings": [
+   {
+    "check": "tap-size",
+    "sev": "WARN",
+    "sel": "div.grid.grid--top > ul.rows.span-6 > li:nth-of-type(1) > button.rows__more",
+    "text": "",
+    "msg": "a 36x36px tap target (and 1 more like it on this screen): under the 44px a phone needs",
+    "crop": "narrow-320-01-tap-size.jpg",
+    "width": 320,
+    "fix": "make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box"
+   },
+   {
+    "check": "collide",
+    "sev": "WARN",
+    "sel": "div.grid.grid--top > ul.rows.span-6 > li:nth-of-type(5) > span.rows__name",
+    "text": "Extração de dentes",
+    "msg": "the words \"Extração de dentes\" run out of their section into the next one (section#consultorio): the section is shorter than what it holds",
+    "crop": "narrow-320-02-collide.jpg",
+    "width": 320,
+    "fix": "on a phone nothing lies on anything else: let the section grow with its content (min-height for its screens, never a fixed height; --hm: 2 when it needs two) or cut what it holds; keep pictures and cards off the buttons; pad the page under a fixed bar by the bar's height (top: the first section; end: the footer)"
+   }
+  ]
  },
  "counts": {
-  "FAIL": 3,
-  "WARN": 20
+  "FAIL": 4,
+  "WARN": 25
  },
  "checks": {
   "assets": "PASS",
@@ -306,8 +367,8 @@
   "fold-card": "PASS",
   "hover-spill": "not checked",
   "overlap-text": "PASS",
-  "collide": "PASS",
-  "tap-size": "PASS",
+  "collide": "WARN",
+  "tap-size": "WARN",
   "row-gap": "PASS",
   "cut-text": "PASS",
   "fold-cut": "PASS",
@@ -319,7 +380,7 @@
   "reduced-motion": "not checked",
   "hidden-content": "PASS",
   "webgl": "PASS",
-  "no-visual": "PASS",
+  "no-visual": "FAIL",
   "text-only": "PASS",
   "card-visual": "PASS",
   "hidden-visual": "not checked",
@@ -359,7 +420,7 @@
   "links": "PASS",
   "forms": "not checked",
   "photo-upscale": "PASS",
-  "photo-set": "PASS",
+  "photo-set": "WARN",
   "photo-credit": "PASS",
   "nav-family": "PASS",
   "nav-labels": "WARN",
@@ -413,7 +474,7 @@
   "count-text": "PASS",
   "loop-cycle": "PASS",
   "section-tile": "PASS",
-  "empty-area": "WARN",
+  "empty-area": "PASS",
   "a11y-name": "PASS",
   "img-alt": "PASS",
   "field-label": "PASS",

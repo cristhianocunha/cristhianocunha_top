@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-type="service" data-radius="soft" data-buttons="tonal" data-motion="" class="m-enter mo-js m-enter-done mo-safe" data-mode="light" data-lowchroma="" style="--g-kl: 0.451; --g-k: 0.451; --g-kp: 0.080; --g-kd: 0.642;" data-tone="light" data-moments-ready="1" data-ready="1"><head>
+<html lang="pt-BR" data-type="service" data-radius="soft" data-buttons="tonal" data-motion="" class="m-enter mo-js m-enter-done mo-safe" data-mode="light" data-lowchroma="" style="--g-kl: 0.451; --g-k: 0.451; --g-kp: 0.080; --g-kd: 0.642;" data-tone="light" data-moments-ready="2" data-ready="1"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dra. Maria das Graças: dentista ortodontista em São Luís</title>
@@ -42,6 +42,7 @@
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
+<link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
 <!-- page CSS: only the client's logo inside the bar and the footer -->
 <style>
   .nav__logo img { display: block; height: 44px; width: auto; }
@@ -49,10 +50,20 @@
   /* the consultório photograph: lower where the split stacks on a tablet, taller on a phone's two screens */
   /* on a desktop the split takes the whole section and the photograph runs to its foot, so no band is left empty under it */
   @media (min-width: 1024px) { #consultorio .wrap > .grid { flex: 1 1 0; min-height: 0; } #consultorio .frame { height: 100%; } }
-  @media (min-width: 640px) and (max-width: 1023px) { #consultorio .frame { --ratio: 45%; } }
+  /* below 1024 (the client's ask: no ground left under the photograph): the words, then the photograph taking all
+     the screen leaves under them, 160px at least; a phone holds the section in one screen */
+  @media (max-width: 1023px) {
+    #consultorio .wrap > .grid { flex: 1 1 auto; display: flex; flex-direction: column; gap: var(--s-5); }
+    #consultorio .frame { --ratio: 0px; flex: 1 1 0; min-height: 160px; }
+  }
+  /* a phone: the words take most of the screen, so the photograph is the strip they leave (about 3:1 at 390x844),
+     taller on a taller phone */
+  @media (max-width: 639px) {
+    #consultorio .wrap > .grid { gap: var(--s-4); }
+    #consultorio .frame { min-height: 100px; }
+  }
   /* the three reviews spread down the photograph's height on a desktop: the statement at the top, the other two under it */
   @media (min-width: 1024px) { #avaliacoes .split-col { justify-content: space-between; } }
-  @media (max-width: 639px) { #consultorio .frame { --ratio: 125%; } }
   /* Invisalign: the aligners and their case, a transparent cut-out standing on the section's ground (no frame, no box);
      on a desktop as large as the section leaves beside the words, its top on the heading's line and its right edge on
      the wrap's; stacked under the words below 1024 */
@@ -70,6 +81,103 @@
     #invisalign .invisalign__media { height: 100%; }
     #invisalign .invisalign__media img { object-position: 100% 0; }
   }
+  /* the treatments on a phone and a tablet (the client's ask): a tap on a row opens its modal, the photograph and the
+     longer text from the old site, in a native <dialog> (Esc, the close button or a tap on the dim ground closes it);
+     a desktop keeps the peek beside the photograph. Without script the rows stay plain. */
+  .rows__more { display: none; }
+  @media (max-width: 1023px) {
+    .mo-js #tratamentos [data-peek-to] { position: relative; cursor: pointer; }
+    .mo-js #tratamentos .rows__more {
+      display: grid; place-items: center; grid-column: 2; grid-row: 1 / span 2; align-self: center;
+      width: 36px; height: 36px; padding: 0; border: 1px solid var(--line-strong); border-radius: 50%;
+      background: transparent; color: var(--ink); transition: background-color var(--dur) var(--ease);
+    }
+    /* the whole row takes the tap; the press shows on the icon only (a transform on the button would make it the
+       box of this layer, so the finger would lift off it and the tap would miss) */
+    .mo-js #tratamentos .rows__more::after { content: ""; position: absolute; inset: 0; }
+    .mo-js #tratamentos [data-peek-to]:active .rows__more { background: var(--surface); }
+    .rows__more svg { width: 14px; height: 14px; transition: transform var(--dur) var(--ease); }
+    .mo-js #tratamentos [data-peek-to]:active .rows__more svg { transform: scale(.8); }
+  }
+  /* a phone: the photograph under the list goes, each row's modal shows its own (one screen, no picture twice) */
+  @media (max-width: 639px) { .mo-js #tratamentos .frame { display: none; } }
+  /* a desktop: a click opens the row in place with the modal's text (moved in by the script), the photograph beside
+     it changes as the peek does; closed rows show the name only, so the open one fits the screen; one open at a time */
+  .rows__text { display: none; }
+  @media (min-width: 1024px) {
+    .mo-js #tratamentos [data-peek-to] { position: relative; cursor: pointer; }
+    .mo-js #tratamentos .rows > li > p { display: none; }
+    .mo-js #tratamentos .rows__more {
+      display: grid; place-items: center; grid-column: 2; grid-row: 1; align-self: center;
+      width: 32px; height: 32px; padding: 0; border: 1px solid var(--line-strong); border-radius: 50%;
+      background: transparent; color: var(--ink); transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .mo-js #tratamentos .rows__more::after { content: ""; position: absolute; inset: 0; }
+    .mo-js #tratamentos [data-peek-to]:hover .rows__more { border-color: var(--ink); }
+    .mo-js #tratamentos .rows__more svg { width: 12px; height: 12px; transition: transform 320ms cubic-bezier(.16, 1, .3, 1); }
+    .mo-js #tratamentos .rows__more[aria-expanded="true"] svg { transform: rotate(45deg); }
+    /* the text sits above the row's tap layer, so it can be read and selected without closing the row */
+    .mo-js #tratamentos .rows__text {
+      position: relative; z-index: 1; cursor: auto; grid-column: 1 / -1;
+      display: none; grid-template-rows: 0fr;
+      transition: grid-template-rows 380ms cubic-bezier(.16, 1, .3, 1), display 380ms allow-discrete;
+    }
+    /* closed it is out of the page (as a closed <details>, screen readers included) once it has folded away; open it
+       unfolds from nothing */
+    .mo-js #tratamentos .is-open > .rows__text { display: grid; grid-template-rows: 1fr; }
+    @starting-style { .mo-js #tratamentos .is-open > .rows__text { grid-template-rows: 0fr; } }
+    .rows__text-inner { min-height: 0; overflow: hidden; display: grid; gap: var(--s-3); }
+    .rows__text-inner > p { max-width: 60ch; color: var(--ink); }
+    .rows__text-inner > p:first-child { padding-top: var(--s-2); }
+  }
+  /* a short desktop screen (768-820px tall): tighter rows and the open text a step smaller, so the longest one fits */
+  @media (min-width: 1024px) and (max-height: 820px) {
+    .mo-js #tratamentos .rows > li { padding-block: var(--s-2); }
+    .mo-js #tratamentos .rows > li:first-child { padding-top: 0; }
+    .rows__text-inner > p { font-size: 15px; line-height: 1.5; }
+    .rows__text-inner > p:first-child { padding-top: var(--s-1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mo-js #tratamentos .rows__text, .mo-js #tratamentos .rows__more svg { transition: none; }
+  }
+  .trat-modal {
+    width: min(560px, calc(100% - 2 * var(--gut))); max-width: none; max-height: min(88svh, 860px);
+    padding: 0; border: 0; border-radius: var(--r-lg); background: var(--bg); color: var(--ink);
+    overflow: auto; overscroll-behavior: contain;
+  }
+  .trat-modal::backdrop { background: rgb(28 27 26 / .5); }
+  .trat-modal__close {
+    position: sticky; top: 12px; z-index: 2; display: grid; place-items: center; width: 40px; height: 40px;
+    margin: 12px 12px -52px auto; padding: 0; border: 0; border-radius: 50%; background: var(--bg); color: var(--ink); cursor: pointer;
+  }
+  .trat-modal__close svg { width: 14px; height: 14px; }
+  .trat-modal__close:active { transform: scale(.92); }
+  .trat-modal__media { aspect-ratio: 3 / 2; overflow: hidden; }
+  .trat-modal__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .trat-modal__body { padding: var(--s-6) var(--s-5) calc(var(--s-6) + env(safe-area-inset-bottom, 0px)); }
+  .trat-modal__body > .btn { width: 100%; justify-content: center; margin-top: var(--s-6); }
+  html:has(.trat-modal[open]) { overflow: hidden; }
+  /* a phone: a sheet from the foot of the screen, full width */
+  @media (max-width: 639px) {
+    .trat-modal { width: 100%; margin: auto 0 0; max-height: 92svh; border-radius: var(--r-lg) var(--r-lg) 0 0; }
+  }
+  /* opening: the sheet rises from the foot on a phone, the card from 16px lower on a tablet, the ground dims;
+     closing runs it back. Reduced motion: it simply appears. */
+  @media (prefers-reduced-motion: no-preference) {
+    .trat-modal, .trat-modal::backdrop {
+      transition: transform 360ms cubic-bezier(.16, 1, .3, 1), opacity 240ms ease, overlay 360ms allow-discrete, display 360ms allow-discrete;
+    }
+    .trat-modal:not([open]) { opacity: 0; transform: translateY(16px); }
+    .trat-modal:not([open])::backdrop { opacity: 0; }
+    @starting-style {
+      .trat-modal[open] { opacity: 0; transform: translateY(16px); }
+      .trat-modal[open]::backdrop { opacity: 0; }
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) and (max-width: 639px) {
+    .trat-modal:not([open]) { opacity: 1; transform: translateY(100%); }
+    @starting-style { .trat-modal[open] { opacity: 1; transform: translateY(100%); } }
+  }
   /* the close from a tablet up (the client's ask): the words on the left, her photograph on the right in
      portrait, as tall as the close's row, on the page's 12 columns; a phone keeps the kit's stacked close */
   @media (min-width: 640px) {
@@ -82,18 +190,21 @@
     #contact .close--photo > .close__media { grid-column: 10 / span 3; }
   }
 </style>
-<link rel="stylesheet" href="http://127.0.0.1:5200/assets/moments/word-highlight/moment.css"></head>
+<link rel="stylesheet" href="http://127.0.0.1:5200/assets/moments/picture-develops/moment.css"><link rel="stylesheet" href="http://127.0.0.1:5200/assets/moments/word-highlight/moment.css"></head>
 <body>
 <!-- type: service (site-kind other), a dental clinic
-     deal: hero split, nav nav-split, close close-photo, footer footer-dark, rhythm surface-pairs (#invisalign + #consultorio),
+     deal: hero split, nav nav-split, close close-photo, footer footer-dark, rhythm surface-pairs (#invisalign and #consultorio on the surface, between the plain sections),
            buttons tonal, mark arc (replaced by the client's logo), palette three-stones, type newsreader (figtree and host failed hero-lines), radius soft, grounds none
-     moments: word-highlight in #avaliacoes (the most telling of the three reviews from the old site) -->
+     moments: word-highlight in #avaliacoes (the most telling of the three reviews from the old site);
+              picture-develops (film) on the #consultorio photograph (the client asked for a transition; the building
+              develops once, the way the clinic's door first comes into view) -->
 
 <header class="nav nav--split" data-m-nav="1">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Pular para o conteúdo</a>
     <a class="nav__logo" href="#top"><img src="assets/fotos/logo-tinta.png" alt="Dra. Maria das Graças, cirurgiã-dentista" width="93" height="44"></a>
     <nav class="nav__links" aria-label="Principal">
+      <div class="nav__item"><a class="nav__link" href="#invisalign">Invisalign</a></div>
       <div class="nav__item">
         <a class="nav__link" href="#tratamentos">Tratamentos <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><button class="nav__expand" type="button" aria-label="Show Tratamentos links" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
         <div class="nav__menu">
@@ -121,7 +232,6 @@
           </div>
         </div>
       </div>
-      <div class="nav__item"><a class="nav__link" href="#invisalign">Invisalign</a></div>
       <div class="nav__item"><a class="nav__link" href="#consultorio">Consultório</a></div>
       <div class="nav__item"><a class="nav__link" href="#avaliacoes">Avaliações</a></div>
     </nav>
@@ -153,30 +263,6 @@
     </div></div>
   </section>
 
-  <section class="section" id="tratamentos" style="--hm: 2" aria-labelledby="tratamentos-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="tratamentos-h">Tratamentos para crianças e adultos</h2>
-      </div>
-      <div class="grid grid--top fill" data-peek="">
-        <ul class="rows span-6">
-          <li data-peek-to="adulto" tabindex="0" class="is-on"><span class="rows__name">Ortodontia para adultos</span><p>Aparelhos autoligados, alinhadores e mini implantes.</p></li>
-          <li data-peek-to="infantil" tabindex="0"><span class="rows__name">Ortodontia infantil</span><p>Avaliação cedo e aparelhos móveis ou fixos.</p></li>
-          <li data-peek-to="clareamento" tabindex="0"><span class="rows__name">Clareamento dental</span><p>No consultório ou em casa, com moldeira feita para você.</p></li>
-          <li data-peek-to="restauracao" tabindex="0"><span class="rows__name">Restaurações em resina</span><p>A cárie sai e a resina volta na cor do dente.</p></li>
-          <li data-peek-to="extracao" tabindex="0"><span class="rows__name">Extração de dentes</span><p>Sisos e dentes com cárie extensa, com anestesia local.</p></li>
-        </ul>
-        <div class="frame frame--photo frame--fill span-6 start-7">
-          <img class="frame__img" data-peek-for="adulto" loading="eager" src="assets/fotos/aparelho-ajuste.jpg" srcset="assets/fotos/aparelho-ajuste-500.jpg 500w, assets/fotos/aparelho-ajuste.jpg 1000w" sizes="(max-width: 639px) 580px, (max-width: 1023px) 100vw, 628px" alt="Dentista de luvas ajustando o aparelho fixo de um paciente" width="1000" height="1500" data-source="client" data-subject="ortodontia">
-          <img class="frame__img" data-peek-for="infantil" loading="eager" src="assets/fotos/ortodontia-infantil.jpg" alt="Menina de óculos sorrindo com aparelho nos dentes" width="400" height="600" data-source="client" data-subject="ortodontia infantil" hidden="">
-          <img class="frame__img" data-peek-for="clareamento" loading="eager" src="assets/fotos/clareamento.jpg" alt="Sorriso dividido ao meio, antes e depois do clareamento" width="600" height="400" data-source="client" data-subject="clareamento" hidden="">
-          <img class="frame__img" data-peek-for="restauracao" loading="eager" src="assets/fotos/restauracao-alt.jpg" srcset="assets/fotos/restauracao-alt-500.jpg 500w, assets/fotos/restauracao-alt.jpg 1000w" sizes="(max-width: 639px) 580px, (max-width: 1023px) 100vw, 628px" alt="Paciente na cadeira enquanto a dentista trata um dente" width="1000" height="1500" data-source="client" data-subject="restauração" hidden="">
-          <img class="frame__img" data-peek-for="extracao" loading="eager" src="assets/fotos/extracao.jpg" alt="Paciente com afastador labial durante um procedimento" width="600" height="400" data-source="client" data-subject="cirurgia" hidden="">
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Invisalign: the client's text; the picture is Invisalign's own (invisalign.com.br), its white made clear -->
   <section class="section ground-surface" id="invisalign" aria-labelledby="invisalign-h">
     <div class="wrap">
@@ -193,7 +279,82 @@
     </div>
   </section>
 
-  <section class="section ground-surface" id="consultorio" style="--hm: 2" aria-labelledby="consultorio-h">
+  <section class="section" id="tratamentos" aria-labelledby="tratamentos-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="tratamentos-h">Tratamentos para crianças e adultos</h2>
+      </div>
+      <div class="grid grid--top fill" data-peek="">
+        <ul class="rows span-6">
+          <li data-peek-to="adulto" class="is-open is-on"><span class="rows__name">Ortodontia para adultos</span><p>Aparelhos autoligados, alinhadores e mini implantes.</p><button class="rows__more" type="button" data-modal="modal-adulto" aria-label="Ler mais sobre ortodontia para adultos" aria-expanded="true" aria-controls="modal-adulto-text"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1.5v11M1.5 7h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button><div class="rows__text" id="modal-adulto-text"><div class="rows__text-inner"><p>Cada vez mais adultos procuram a ortodontia, e não só pela estética. Dentes desalinhados atrapalham a mastigação, podem causar dor na mandíbula e dificultam a limpeza, o que aumenta o risco de cárie e de doença na gengiva.</p><p>O tratamento usa aparelhos autoligados ou alinhadores transparentes, escolhidos para a sua rotina. Quando o caso pede mais força num ponto, um mini implante de titânio serve de ancoragem: é colocado com anestesia local e a recuperação é curta.</p></div></div></li>
+          <li data-peek-to="infantil"><span class="rows__name">Ortodontia infantil</span><p>Avaliação cedo e aparelhos móveis ou fixos.</p><button class="rows__more" type="button" data-modal="modal-infantil" aria-label="Ler mais sobre ortodontia infantil" aria-expanded="false" aria-controls="modal-infantil-text"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1.5v11M1.5 7h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button><div class="rows__text" id="modal-infantil-text"><div class="rows__text-inner"><p>A infância é a fase ideal para avaliar a arcada, porque os ossos ainda estão em formação. Uma avaliação cedo encontra mordida cruzada, dentes apinhados e problemas na mandíbula quando a correção ainda é mais simples.</p><p>Os aparelhos, móveis ou fixos, guiam os dentes e o osso durante o crescimento. Isso ajuda a mastigar e a limpar os dentes, e também a fala e a respiração. Cada criança é atendida com calma, para que o tratamento seja tranquilo.</p></div></div></li>
+          <li data-peek-to="clareamento"><span class="rows__name">Clareamento dental</span><p>No consultório ou em casa, com moldeira feita para você.</p><button class="rows__more" type="button" data-modal="modal-clareamento" aria-label="Ler mais sobre clareamento dental" aria-expanded="false" aria-controls="modal-clareamento-text"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1.5v11M1.5 7h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button><div class="rows__text" id="modal-clareamento-text"><div class="rows__text-inner"><p>Café, chá, vinho tinto e cigarro escurecem os dentes com o tempo. O clareamento tira essas manchas e devolve aos dentes um tom mais claro.</p><p>Pode ser feito no consultório, com produto de alta concentração e laser, ou em casa, com moldeira feita para você e acompanhamento da dentista. Com orientação profissional é seguro, e o tratamento é ajustado para reduzir a sensibilidade.</p></div></div></li>
+          <li data-peek-to="restauracao"><span class="rows__name">Restaurações em resina</span><p>A cárie sai e a resina volta na cor do dente.</p><button class="rows__more" type="button" data-modal="modal-restauracao" aria-label="Ler mais sobre restaurações em resina" aria-expanded="false" aria-controls="modal-restauracao-text"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1.5v11M1.5 7h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button><div class="rows__text" id="modal-restauracao-text"><div class="rows__text-inner"><p>A restauração trata a cárie e devolve ao dente a forma, a função e a aparência. A resina imita a cor e a textura do dente, então o reparo quase não aparece.</p><p>Primeiro a cárie sai e a área é limpa. Depois a resina entra em camadas, cada uma modelada e endurecida com luz, e o dente recebe acabamento e polimento. Tratar cedo evita infecção e danos maiores, e restaurações antigas também podem ser trocadas.</p></div></div></li>
+          <li data-peek-to="extracao"><span class="rows__name">Extração de dentes</span><p>Sisos e dentes com cárie extensa, com anestesia local.</p><button class="rows__more" type="button" data-modal="modal-extracao" aria-label="Ler mais sobre extração de dentes" aria-expanded="false" aria-controls="modal-extracao-text"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1.5v11M1.5 7h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button><div class="rows__text" id="modal-extracao-text"><div class="rows__text-inner"><p>A extração é indicada em casos de infecção, cárie extensa ou falta de espaço, como acontece com os sisos.</p><p>O caso é avaliado antes, e o procedimento é feito com anestesia local. Depois da cirurgia você recebe as orientações de cuidado para uma recuperação tranquila.</p></div></div></li>
+        </ul>
+        <div class="frame frame--photo frame--fill span-6 start-7">
+          <img class="frame__img" data-peek-for="adulto" loading="eager" src="assets/fotos/aparelho-ajuste.jpg" srcset="assets/fotos/aparelho-ajuste-500.jpg 500w, assets/fotos/aparelho-ajuste.jpg 1000w" sizes="(max-width: 639px) 580px, (max-width: 1023px) 100vw, 628px" alt="Dentista de luvas ajustando o aparelho fixo de um paciente" width="1000" height="1500" data-source="client" data-subject="ortodontia">
+          <img class="frame__img" data-peek-for="infantil" loading="eager" src="assets/fotos/ortodontia-infantil.jpg" alt="Menina de óculos sorrindo com aparelho nos dentes" width="400" height="600" data-source="client" data-subject="ortodontia infantil" hidden="">
+          <img class="frame__img" data-peek-for="clareamento" loading="eager" src="assets/fotos/clareamento.jpg" alt="Sorriso dividido ao meio, antes e depois do clareamento" width="600" height="400" data-source="client" data-subject="clareamento" hidden="">
+          <img class="frame__img" data-peek-for="restauracao" loading="eager" src="assets/fotos/restauracao-alt.jpg" srcset="assets/fotos/restauracao-alt-500.jpg 500w, assets/fotos/restauracao-alt.jpg 1000w" sizes="(max-width: 639px) 580px, (max-width: 1023px) 100vw, 628px" alt="Paciente na cadeira enquanto a dentista trata um dente" width="1000" height="1500" data-source="client" data-subject="restauração" hidden="">
+          <img class="frame__img" data-peek-for="extracao" loading="eager" src="assets/fotos/extracao.jpg" alt="Paciente com afastador labial durante um procedimento" width="600" height="400" data-source="client" data-subject="cirurgia" hidden="">
+        </div>
+      </div>
+      <!-- the treatments' modals (phone and tablet): the longer texts of the old site, shortened, each with its photograph -->
+      <dialog class="trat-modal" id="modal-adulto" aria-labelledby="modal-adulto-h">
+        <button class="trat-modal__close" type="button" data-close="" aria-label="Fechar"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5l9 9M11.5 2.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button>
+        <div class="trat-modal__media"><img src="assets/fotos/ortodontia-adulto.jpg" width="600" height="430" alt="Sorriso com aparelho fixo nos dentes de cima e de baixo" loading="eager" style="object-position: 50% 50%" data-source="client"></div>
+        <div class="trat-modal__body stack-4">
+          <h3 id="modal-adulto-h">Ortodontia para adultos</h3>
+          <p>Cada vez mais adultos procuram a ortodontia, e não só pela estética. Dentes desalinhados atrapalham a mastigação, podem causar dor na mandíbula e dificultam a limpeza, o que aumenta o risco de cárie e de doença na gengiva.</p>
+          <p>O tratamento usa aparelhos autoligados ou alinhadores transparentes, escolhidos para a sua rotina. Quando o caso pede mais força num ponto, um mini implante de titânio serve de ancoragem: é colocado com anestesia local e a recuperação é curta.</p>
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send/?phone=559881419938&amp;text=Ol%C3%A1%2C+quero+agendar+uma+consulta+com+a+Dra.+Gra%C3%A7a+Santos&amp;type=phone_number&amp;app_absent=0">Marcar consulta</a>
+        </div>
+      </dialog>
+      <dialog class="trat-modal" id="modal-infantil" aria-labelledby="modal-infantil-h">
+        <button class="trat-modal__close" type="button" data-close="" aria-label="Fechar"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5l9 9M11.5 2.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button>
+        <div class="trat-modal__media"><img src="assets/fotos/ortodontia-infantil.jpg" width="400" height="600" alt="Menina de óculos sorrindo com aparelho nos dentes" loading="eager" style="object-position: 50% 30%" data-source="client"></div>
+        <div class="trat-modal__body stack-4">
+          <h3 id="modal-infantil-h">Ortodontia infantil</h3>
+          <p>A infância é a fase ideal para avaliar a arcada, porque os ossos ainda estão em formação. Uma avaliação cedo encontra mordida cruzada, dentes apinhados e problemas na mandíbula quando a correção ainda é mais simples.</p>
+          <p>Os aparelhos, móveis ou fixos, guiam os dentes e o osso durante o crescimento. Isso ajuda a mastigar e a limpar os dentes, e também a fala e a respiração. Cada criança é atendida com calma, para que o tratamento seja tranquilo.</p>
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send/?phone=559881419938&amp;text=Ol%C3%A1%2C+quero+agendar+uma+consulta+com+a+Dra.+Gra%C3%A7a+Santos&amp;type=phone_number&amp;app_absent=0">Marcar consulta</a>
+        </div>
+      </dialog>
+      <dialog class="trat-modal" id="modal-clareamento" aria-labelledby="modal-clareamento-h">
+        <button class="trat-modal__close" type="button" data-close="" aria-label="Fechar"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5l9 9M11.5 2.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button>
+        <div class="trat-modal__media"><img src="assets/fotos/clareamento.jpg" width="600" height="400" alt="Sorriso dividido ao meio, antes e depois do clareamento" loading="eager" style="object-position: 50% 50%" data-source="client"></div>
+        <div class="trat-modal__body stack-4">
+          <h3 id="modal-clareamento-h">Clareamento dental</h3>
+          <p>Café, chá, vinho tinto e cigarro escurecem os dentes com o tempo. O clareamento tira essas manchas e devolve aos dentes um tom mais claro.</p>
+          <p>Pode ser feito no consultório, com produto de alta concentração e laser, ou em casa, com moldeira feita para você e acompanhamento da dentista. Com orientação profissional é seguro, e o tratamento é ajustado para reduzir a sensibilidade.</p>
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send/?phone=559881419938&amp;text=Ol%C3%A1%2C+quero+agendar+uma+consulta+com+a+Dra.+Gra%C3%A7a+Santos&amp;type=phone_number&amp;app_absent=0">Marcar consulta</a>
+        </div>
+      </dialog>
+      <dialog class="trat-modal" id="modal-restauracao" aria-labelledby="modal-restauracao-h">
+        <button class="trat-modal__close" type="button" data-close="" aria-label="Fechar"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5l9 9M11.5 2.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button>
+        <div class="trat-modal__media"><img src="assets/fotos/restauracao-alt-500.jpg" srcset="assets/fotos/restauracao-alt-500.jpg 500w, assets/fotos/restauracao-alt.jpg 1000w" sizes="(max-width: 639px) 100vw, 560px" width="500" height="750" alt="Paciente na cadeira enquanto a dentista trata um dente" loading="eager" style="object-position: 50% 42%" data-source="client"></div>
+        <div class="trat-modal__body stack-4">
+          <h3 id="modal-restauracao-h">Restaurações em resina</h3>
+          <p>A restauração trata a cárie e devolve ao dente a forma, a função e a aparência. A resina imita a cor e a textura do dente, então o reparo quase não aparece.</p>
+          <p>Primeiro a cárie sai e a área é limpa. Depois a resina entra em camadas, cada uma modelada e endurecida com luz, e o dente recebe acabamento e polimento. Tratar cedo evita infecção e danos maiores, e restaurações antigas também podem ser trocadas.</p>
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send/?phone=559881419938&amp;text=Ol%C3%A1%2C+quero+agendar+uma+consulta+com+a+Dra.+Gra%C3%A7a+Santos&amp;type=phone_number&amp;app_absent=0">Marcar consulta</a>
+        </div>
+      </dialog>
+      <dialog class="trat-modal" id="modal-extracao" aria-labelledby="modal-extracao-h">
+        <button class="trat-modal__close" type="button" data-close="" aria-label="Fechar"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5l9 9M11.5 2.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button>
+        <div class="trat-modal__media"><img src="assets/fotos/extracao.jpg" width="600" height="400" alt="Paciente com afastador labial durante um procedimento" loading="eager" style="object-position: 50% 50%" data-source="client"></div>
+        <div class="trat-modal__body stack-4">
+          <h3 id="modal-extracao-h">Extração de dentes</h3>
+          <p>A extração é indicada em casos de infecção, cárie extensa ou falta de espaço, como acontece com os sisos.</p>
+          <p>O caso é avaliado antes, e o procedimento é feito com anestesia local. Depois da cirurgia você recebe as orientações de cuidado para uma recuperação tranquila.</p>
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send/?phone=559881419938&amp;text=Ol%C3%A1%2C+quero+agendar+uma+consulta+com+a+Dra.+Gra%C3%A7a+Santos&amp;type=phone_number&amp;app_absent=0">Marcar consulta</a>
+        </div>
+      </dialog>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="consultorio" aria-labelledby="consultorio-h">
     <div class="wrap">
       <div class="grid grid--top">
         <div class="span-6 split-col">
@@ -205,7 +366,8 @@
             <p><a class="link" href="https://www.google.com/maps?cid=7221528065705835822">Ver no mapa</a></p>
           </div>
         </div>
-        <div class="frame frame--photo frame--split span-6 start-7">
+        <!-- picture-develops (film): the building comes up out of a faint grey print once as it comes on screen -->
+        <div class="frame frame--photo frame--split span-6 start-7 mo-pd mo-pd--film is-done" data-moment="picture-develops" data-moment-mounted="1">
           <img class="frame__img" src="assets/fotos/shopping-da-ilha.jpg" srcset="assets/fotos/shopping-da-ilha-640.jpg 640w, assets/fotos/shopping-da-ilha.jpg 1200w" sizes="(max-width: 639px) 580px, (max-width: 1023px) 100vw, 944px" width="1200" height="900" alt="A torre do Centro Empresarial Shopping da Ilha ao entardecer, ao lado da avenida" loading="eager" style="object-position: 28% 50%" data-source="client" data-subject="o Centro Empresarial Shopping da Ilha">
         </div>
       </div>
@@ -274,6 +436,48 @@
   <a class="btn btn--primary" href="https://api.whatsapp.com/send/?phone=559881419938&amp;text=Ol%C3%A1%2C+quero+agendar+uma+consulta+com+a+Dra.+Gra%C3%A7a+Santos&amp;type=phone_number&amp;app_absent=0">Marcar consulta</a>
 </nav>
 
+<script>
+  // the treatments: under 1024 a row's button opens its <dialog> (the close button, a tap on the dim ground or Esc closes
+  // it); from 1024 the same button opens the row in place with the modal's text, one row at a time, and the photograph
+  // beside it follows through the kit's peek (a hover still previews; leaving the list brings back the open row's)
+  (() => {
+    const list = document.querySelector('#tratamentos .rows');
+    if (!list) return;
+    const wide = matchMedia('(min-width: 1024px)');
+    const rows = [...list.children];
+    let open = null;
+    rows.forEach(li => {
+      const btn = li.querySelector('.rows__more');
+      const d = document.getElementById(btn.dataset.modal);
+      const text = document.createElement('div'); text.className = 'rows__text'; text.id = btn.dataset.modal + '-text';
+      const inner = document.createElement('div'); inner.className = 'rows__text-inner';
+      d.querySelectorAll('.trat-modal__body > p').forEach(p => inner.appendChild(p.cloneNode(true)));
+      text.appendChild(inner); li.appendChild(text);
+      li.removeAttribute('tabindex'); // the row's own button takes the focus now
+      btn.addEventListener('click', () => {
+        if (!wide.matches) { if (d.showModal) d.showModal(); return; }
+        set(open === li ? null : li);
+      });
+    });
+    const peek = li => li.dispatchEvent(new PointerEvent('pointerenter', { pointerType: 'mouse' }));
+    function set(li) {
+      open = li;
+      rows.forEach(r => {
+        const b = r.querySelector('.rows__more');
+        r.classList.toggle('is-open', wide.matches && r === li); // a desktop's state only: stacked, the rows stay alike
+        if (wide.matches) { b.setAttribute('aria-expanded', String(r === li)); b.setAttribute('aria-controls', b.dataset.modal + '-text'); }
+        else { b.removeAttribute('aria-expanded'); b.removeAttribute('aria-controls'); }
+      });
+      if (li && wide.matches) peek(li);
+    }
+    set(rows[0]);
+    wide.addEventListener('change', () => set(open || rows[0]));
+    list.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse' && open && wide.matches) peek(open); });
+    document.querySelectorAll('dialog.trat-modal').forEach(d => d.addEventListener('click', e => {
+      if (e.target === d || e.target.closest('[data-close]')) d.close();
+    }));
+  })();
+</script>
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
